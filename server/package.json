@@ -1,0 +1,32 @@
+{
+  "name": "nikways-server",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "This is api server for Nikways project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "devAll": "concurrently \" nodemon index.js \"  \" cd ../client && npm run dev \""
+  },
+  "author": "VIV",
+  "license": "ISC",
+  "dependencies": {
+    "@types/cors": "^2.8.13",
+    "argon2": "^0.30.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-fileupload": "^1.4.0",
+    "jsonwebtoken": "^9.0.0",
+    "mysql2": "^3.2.2",
+    "nodemailer": "^6.9.1",
+    "sequelize": "^6.31.0",
+    "slugify": "^1.6.6"
+  },
+  "devDependencies": {
+    "@types/express-fileupload": "^1.4.1",
+    "concurrently": "^8.0.1",
+    "nodemon": "^2.0.22"
+  }
+}

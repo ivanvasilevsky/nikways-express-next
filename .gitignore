@@ -1,0 +1,25 @@
+/client/node_modules
+/client/.next/
+/client/build
+/client/.DS_Store
+
+/server/node_modules
+/server/.DS_Store
+
+/admin/node_modules
+/admin/.DS_Store
+
+.DS_Store
+*.pem
+
+
+
+
+
+# /admin/config.js
+
+# /client/config.js
+# /client/next.config.js
+
+# /server/.env
+# /server/static
