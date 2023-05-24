@@ -1,0 +1,150 @@
+.menu__back
+  position: fixed
+  top: 0
+  left: 0
+  width: 100vw
+  height: 100vh
+  pointer-events: none
+  transition: .6s
+
+.menu__trigger
+  position: fixed
+  right: -1px
+  top: 44%
+  translate: 0 -50%
+
+.menu__trigger__inner
+  position: relative
+
+.menu__trigger__bg
+  transform-origin: right
+  transition: .4s
+
+.menu__trigger__icon
+  fill: black
+  transition: .5s .2s
+  position: absolute
+  top: 50%
+  left: 50%
+  translate: -50% -50%
+
+  &:hover
+    cursor: pointer
+
+.menu__trigger__cross
+  position: fixed
+  top: 50%
+  right: -90px
+  translate: 0 -50%
+  transition: .5s
+
+  &:hover
+    cursor: pointer
+
+
+.menu__main
+  position: fixed
+  top: 0
+  right: -150%
+  width: 60vw
+  height: 100vh
+  background: $white
+  transition: .8s
+
+.menu__main__inner
+  height: 100%
+  display: flex
+  flex-direction: column
+  gap: 26px
+  justify-content: center
+  position: fixed
+  top: 0
+  right: 0
+  width: 60vw
+
+.menu__main__link
+  opacity: 0
+  translate: 100vw 0
+  margin: 0 auto
+  font-size: 48px
+  display: flex
+  transition: .5s
+
+  & span
+    -webkit-text-stroke: 1px $black
+    color: $white
+    translate: 20px 0
+    transition: .3s
+
+  & img
+    display: block
+    margin-left: 30px
+    margin-bottom: 12px
+    translate: 0 14px
+    opacity: 0
+    transition: .3s
+
+  &:hover
+    & span
+      color: $black
+      translate: 0
+      transition: .4s
+
+    & img
+      translate: 0
+      opacity: 1
+      transition: .4s
+
+.menu.active
+  & .menu__back
+    background: #00000040
+    backdrop-filter: blur(10px)
+    -webkit-backdrop-filter: blur(10px)
+    pointer-events: all
+
+  & .menu__trigger__bg
+    scale: 0 1
+    transition: .2s
+
+  & .menu__trigger__icon
+    translate: 150% -50%
+    transition: .2s
+
+  & .menu__trigger__cross
+    right: 10px
+    transition: .6s .2s
+
+  & .menu__main
+    right: 0
+    transition: .7s cubic-bezier(.29,.22,.47,.98)
+
+  & .menu__main__link
+    opacity: 1
+    translate: 0
+    transition: .8s cubic-bezier(.29,.22,.47,.98)
+    transition-delay: .04s
+
+    &:nth-child(2)
+      transition-delay: .05s
+
+    &:nth-child(2)
+      transition-delay: .06s
+
+    &:nth-child(3)
+      transition-delay: .07s
+
+    &:nth-child(4)
+      transition-delay: .08s
+
+    &:nth-child(5)
+      transition-delay: .09s
+
+    &:nth-child(6)
+      transition-delay: .1s
+
+    &:nth-child(7)
+      transition-delay: .11s
+
+    &:nth-child(7)
+      transition-delay: .12s
+

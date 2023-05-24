@@ -1,8 +1,9 @@
 export default function Home() {
 
+
   return (
     <>
-      <h1>tes2t</h1>
+      <div className="test_block"></div>
     </>
   )
 }
