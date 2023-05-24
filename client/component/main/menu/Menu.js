@@ -5,11 +5,20 @@ import WaveSvg from "../../ui/WaveSvg"
 import LinkMenu from "./LinkMenu"
 import CrossMenuSvg from "@/component/ui/CrossMenuSvg"
 import TriggerMenuBg from "@/component/ui/TriggerMenuBg"
+import Link from "next/link"
+import { Router, useRouter } from "next/router"
 
 export default function Menu() {
 
+  const router = useRouter()
+
   const [darkTheme, setDarkTheme] = useState(false)
   const [menuActive, setMenuActive] = useState(false)
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll)
+  }, [])
+
 
   const handleScroll = () => {
     if (window.scrollY > 100) {
@@ -19,17 +28,28 @@ export default function Menu() {
     }
   }
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll)
-  }, [])
 
+
+
+  Router.events.on('routeChangeComplete', () => {
+    setMenuActive(false)
+  })
 
   return (
     <div className={`menu ${menuActive ? 'active' : ''} ${darkTheme ? 'dark' : ''}`}>
       <div className="menu__back"></div>
 
       <div className="menu__mini">
-
+        <div className="container">
+          <div className="menu__mini__inner">
+            <div className={`menu__mini__block ${router.asPath != '/' ? 'active' : ''}`}>
+              <Link className="menu__mini__link" href="/">На главную</Link>
+              <Link className="menu__mini__link" href="/">Портфолио</Link>
+              <Link className="menu__mini__link" href="/">Заявка</Link>
+              <Link className="menu__mini__link" href="/">О нас</Link>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="menu__main">
@@ -41,7 +61,7 @@ export default function Menu() {
         }
 
         <div className="menu__main__inner">
-          <LinkMenu title="Портфолио" link="/"/>
+          <LinkMenu title="Портфолио" link="/test"/>
           <LinkMenu title="Услуга" link="/" />
           <LinkMenu title="О нас" link="/" />
           <LinkMenu title="Нейромаркетинг" link="/" />

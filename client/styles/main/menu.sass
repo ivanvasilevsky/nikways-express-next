@@ -126,6 +126,77 @@
       opacity: 1
       transition: .4s
 
+.menu__mini
+  pointer-events: none
+
+.menu__mini__inner
+  position: relative
+
+.menu__mini__block
+  position: absolute
+  display: flex
+  flex-direction: column
+  gap: 50px
+  margin-top: 24vh
+  pointer-events: all
+
+.menu__mini__link
+  font-family: 'Mont'
+  color: $white
+  font-weight: 200
+  font-size: 20px
+  position: relative
+  translate: 80px 0
+  opacity: 0
+  transition: .6s
+
+  &:first-child::after
+    position: absolute
+    right: calc( 100% + 30px  )
+    top: 36%
+    content: ''
+    width: 40px
+    height: 8px
+    @include bg('/icons/arrow_menu_l.svg')
+    // opacity: 0
+    // transition: .3s
+
+  &:nth-child(1)
+    transition-delay: .04s
+
+  &:nth-child(2)
+    transition-delay: .08s
+
+  &:nth-child(3)
+    transition-delay: .1s
+
+  &:nth-child(4)
+    transition-delay: .14s
+
+
+.menu__mini__block.active
+
+  & .menu__mini__link
+    opacity: 1
+    translate: 0
+    transition: .6s
+
+    &:nth-child(1)
+      transition-delay: .04s
+
+    &:nth-child(2)
+      transition-delay: .08s
+
+    &:nth-child(3)
+      transition-delay: .1s
+
+    &:nth-child(4)
+      transition-delay: .14s
+
+    &:hover
+      opacity: 0.6
+      transition: .2s
+
 
 .menu.dark
   & .menu__trigger__bg
