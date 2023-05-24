@@ -13,20 +13,26 @@
   top: 44%
   translate: 0 -50%
 
+  @media(max-width: 800px)
+    right: -20px
+
 .menu__trigger__inner
   position: relative
 
 .menu__trigger__bg
   transform-origin: right
-  transition: .4s
+  transition: .4s .3s
 
 .menu__trigger__icon
   fill: black
-  transition: .5s .2s
+  transition: .5s .3s
   position: absolute
   top: 50%
   left: 50%
   translate: -50% -50%
+
+  @media(max-width: 800px)
+    left: 35%
 
   &:hover
     cursor: pointer
@@ -49,7 +55,10 @@
   width: 60vw
   height: 100vh
   background: $white
-  transition: .8s
+  transition: .7s cubic-bezier(.29,.22,.47,.98)
+
+  @media(max-width: 800px)
+    width: 100vw
 
 .menu__main__inner
   height: 100%
@@ -62,13 +71,35 @@
   right: 0
   width: 60vw
 
+  @media(max-width: 800px)
+    width: 100vw
+
+  @media(max-width: 800px)
+    gap: 18px
+
+  @media(max-width: 390px)
+    gap: 10px
+
+  @media(max-width: 350px)
+    gap: 0px
+
 .menu__main__link
+  padding-left: 20px
   opacity: 0
   translate: 100vw 0
   margin: 0 auto
   font-size: 48px
   display: flex
   transition: .5s
+
+  @media(max-width: 1100px)
+    font-size: 40px
+
+  @media(max-width: 800px)
+    font-size: 34px
+
+  @media(max-width: 390px)
+    font-size: 7vw
 
   & span
     -webkit-text-stroke: 1px $black
@@ -95,6 +126,34 @@
       opacity: 1
       transition: .4s
 
+
+.menu.dark
+  & .menu__trigger__bg
+    fill: $black
+
+  & .menu__trigger__icon
+    fill: $white
+
+  & .menu__cross__icon
+    fill: $white
+
+  & .menu__main__link
+    & span
+      -webkit-text-stroke: 1px $white
+      color: $black
+
+      &:hover
+        color: $white
+
+  & .menu__main
+    background: $black
+    transition: .7s cubic-bezier(.29,.22,.47,.98)
+
+  & .wave__svg svg
+    fill: $black
+    transition: .7s cubic-bezier(.29,.22,.47,.98)
+
+
 .menu.active
   & .menu__back
     background: #00000040
@@ -112,7 +171,10 @@
 
   & .menu__trigger__cross
     right: 10px
-    transition: .6s .2s
+    transition: .6s .4s
+
+    @media(max-width: 800px)
+      right: 30px
 
   & .menu__main
     right: 0

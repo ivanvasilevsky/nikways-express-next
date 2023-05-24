@@ -1,16 +1,31 @@
 import Image from "next/image"
 import BurgerSvg from "../../ui/BurgerSvg"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import WaveSvg from "../../ui/WaveSvg"
 import LinkMenu from "./LinkMenu"
 import CrossMenuSvg from "@/component/ui/CrossMenuSvg"
+import TriggerMenuBg from "@/component/ui/TriggerMenuBg"
 
 export default function Menu() {
 
+  const [darkTheme, setDarkTheme] = useState(false)
   const [menuActive, setMenuActive] = useState(false)
 
+  const handleScroll = () => {
+    if (window.scrollY > 100) {
+      setDarkTheme(true)
+    } else {
+      setDarkTheme(false)
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll)
+  }, [])
+
+
   return (
-    <div className={`menu ${menuActive ? 'active' : ''}`}>
+    <div className={`menu ${menuActive ? 'active' : ''} ${darkTheme ? 'dark' : ''}`}>
       <div className="menu__back"></div>
 
       <div className="menu__mini">
@@ -38,7 +53,7 @@ export default function Menu() {
 
       <div className="menu__trigger">
         <div className="menu__trigger__inner">
-          <Image className="menu__trigger__bg" src="/ui/menu_trigger.svg" width={55} height={500} priority alt="trigger"/>
+          <TriggerMenuBg/>
           <div onClick={() => setMenuActive(true)} className="menu__trigger__btn">
             <BurgerSvg/>
           </div>
