@@ -1,10 +1,25 @@
-export default function Home() {
+import Intro from "@/component/index/intro/Intro"
+import { $host } from "@/http/http"
+
+
+export default function Home({ categories }) {
 
 
   return (
     <>
-      <div className="test_block"></div>
-      <div className="test_block2"></div>
+      <Intro categories={categories}/>
     </>
   )
+}
+
+
+export async function getServerSideProps() {
+
+  const categories = await $host.get('/category')
+
+  return {
+    props: {
+      categories: categories.data
+    }
+  }
 }

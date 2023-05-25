@@ -29,8 +29,6 @@ export default function Menu() {
   }
 
 
-
-
   Router.events.on('routeChangeComplete', () => {
     setMenuActive(false)
   })

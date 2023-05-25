@@ -11,13 +11,13 @@ html
 
 body
   margin: 0
-
   font-family: 'pro'
   font-weight: 400
   color: $black
   font-size: 1rem
-
   line-height: 1.5
+
+  @include hideScroll
 
 *,
 *::before,
@@ -81,6 +81,13 @@ input
 .hidden
   display: none
 
+
+.slick-list
+  width: 100%
+
+.slick-track
+  display: flex
+
 /* Container */
 @import "container.sass"
 
@@ -102,14 +109,5 @@ input
 @import  "main/footer.sass"
 
 
-
-.test_block
-  width: 100%
-  height: 600px
-  background: #000
-
-
-.test_block2
-  width: 100%
-  height: 600px
-  background: white
+/* Index */
+@import  "index/intro.sass"

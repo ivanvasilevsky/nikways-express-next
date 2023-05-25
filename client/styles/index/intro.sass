@@ -1,0 +1,97 @@
+.intro
+  position: relative
+  min-height: 400px
+  max-height: 720px
+  height: 80vh
+  background: $black
+
+
+.intro__inner
+  height: 100%
+  padding: 90px 0
+  @include centerIn
+
+.intro__source
+  height: 100%
+
+  & img
+    width: auto
+    height: 44vh
+    max-height: 450px
+
+.intro__bottom
+  width: 100%
+  scale: 1.02
+  position: absolute
+  left: 50%
+  translate: -50% 0
+  top: calc( 100% - 1px )
+
+.intro__block
+  margin-top: 50px
+
+.intro__subtitle
+  display: flex
+  align-items: center
+  font-size: 16px
+  font-family: 'Mont'
+  color: white
+
+  & span
+    margin-right: 10px
+
+.intro__slider__outer
+  width: 100%
+  position: relative
+
+.intro__slider
+
+  & .slick-slide
+    pointer-events: none
+    opacity: 0
+    transition: .4s
+
+  & .slick-active
+    pointer-events: all
+    opacity: 1
+    transition: .4s .3s
+
+  & .slick-arrow
+    width: 55px
+    height: 55px
+    border-radius: 50%
+    border: 2px solid $cyan
+    position: absolute
+    @include centerIn
+    padding: 0 0 0 3px
+    z-index: 100
+    right: 0
+    top: 50%
+    translate: 0 -50%
+    transition: .2s
+
+    &:hover
+      cursor: pointer
+      opacity: 0.4
+
+    & img
+      max-height: 20px
+
+  & .slick-prev
+    right: 90px
+    padding: 0 3px 0 0
+
+  & .slick-disabled
+    pointer-events: none
+    opacity: 0.3
+
+
+.intro__slider__item
+  width: max-content
+  font-size: 99px
+  color: $cyan
+  transition: .4s
+
+  &:hover
+      cursor: pointer
+      opacity: 0.4
