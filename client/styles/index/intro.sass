@@ -1,31 +1,46 @@
 .intro
   position: relative
-  min-height: 400px
-  max-height: 720px
-  height: 80vh
+  // min-height: 500px
+  max-height: 760px
+  // height: 80vh
   background: $black
 
 
 .intro__inner
   height: 100%
-  padding: 90px 0
+  padding: 90px 0 0
   @include centerIn
+
+  @media(max-width: 1600px)
+    padding: 90px 0 0px
+
+  @media(max-width: 998px)
+    padding: 75px 0
 
 .intro__source
   height: 100%
 
   & img
     width: auto
-    height: 44vh
+    height: 46vh
     max-height: 450px
+
+    @media(max-width: 1400px)
+      max-height: 500px
+
+    @media(max-width: 500px)
+      max-height: 300px
 
 .intro__bottom
   width: 100%
-  scale: 1.02
+  scale: 1.03
   position: absolute
   left: 50%
   translate: -50% 0
   top: calc( 100% - 1px )
+
+  @media(max-width: 500px)
+    scale: 1.05
 
 .intro__block
   margin-top: 50px
@@ -40,9 +55,19 @@
   & span
     margin-right: 10px
 
+  & img
+    @media(max-width: 500px)
+      display: none
+
+  @media(max-width: 500px)
+    font-size: 14px
+    margin-bottom: 10px
+
+
 .intro__slider__outer
   width: 100%
   position: relative
+  margin-top: 20px
 
 .intro__slider
 
@@ -70,6 +95,16 @@
     translate: 0 -50%
     transition: .2s
 
+    @media(max-width: 998px)
+      top: 130%
+
+    @media(max-width: 500px)
+      width: 50px
+      height: 50px
+
+    @media(max-width: 350px)
+      top: 150%
+
     &:hover
       cursor: pointer
       opacity: 0.4
@@ -81,6 +116,20 @@
     right: 90px
     padding: 0 3px 0 0
 
+    @media(max-width: 998px)
+      right: initital
+      left: 35%
+
+    @media(max-width: 1400px)
+      left: 25%
+
+  & .slick-next
+    @media(max-width: 998px)
+      right: 35%
+
+    @media(max-width: 1400px)
+      right: 25%
+
   & .slick-disabled
     pointer-events: none
     opacity: 0.3
@@ -88,9 +137,21 @@
 
 .intro__slider__item
   width: max-content
-  font-size: 99px
+  font-size: 98px
   color: $cyan
   transition: .4s
+
+  @media(max-width: 1600px)
+    font-size: 80px
+
+  @media(max-width: 998px)
+    font-size: 70px
+
+  @media(max-width: 500px)
+    font-size: 55px
+
+  @media(max-width: 350px)
+    font-size: 40px
 
   &:hover
       cursor: pointer

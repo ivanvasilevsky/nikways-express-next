@@ -1,0 +1,74 @@
+.header
+  position: absolute
+  z-index: 100
+  width: 100vw
+
+  & a
+    transition: .15s
+    &:hover
+      opacity: 0.7
+      transition: .15s
+
+
+.header__inner
+  padding-top: 20px
+  display: flex
+  align-items: center
+  justify-content: space-between
+  font-family: 'Mont'
+
+  @media(max-width: 998px)
+    padding-top: 10px
+
+.header__logo
+  @media(max-width: 998px)
+    max-width: 70px
+
+  @media(max-width: 500px)
+    max-width: 60px
+
+.header__block
+  display: flex
+
+.header__item
+  margin-left: 20px
+
+  @media(max-width: 998px)
+    margin-left: 12px
+
+  @media(max-width: 480px)
+    margin-left: 20px
+
+.header__subtitle
+  font-size: 14px
+  font-weight: 200
+  color: $white
+  margin-bottom: 5px
+
+  @media(max-width: 998px)
+    font-size: 12px
+
+  @media(max-width: 480px)
+    display: none
+
+.header__link
+  display: flex
+  font-size: 14px
+  font-weight: 700
+  color: $cyan
+  text-transform: uppercase
+  text-decoration: underline
+  position: relative
+
+  & span
+    margin-left: 5px
+
+    @media(max-width: 480px)
+      display: none
+
+  & img
+    @media(max-width: 480px)
+      width: 33px
+
+  @media(max-width: 998px)
+    font-size: 12px
