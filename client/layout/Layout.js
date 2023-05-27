@@ -13,7 +13,7 @@ export default function Layout({ children }) {
         <Header/>
 
         {children}
-        <Footer/>
+        <Footer info={children.props.contacts}/>
       </div>
     </>
   )

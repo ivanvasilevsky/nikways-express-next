@@ -50,7 +50,7 @@ const Contacts = sequelize.define('contacts', {
   number_two: { type: DataTypes.STRING },
   link_insta: { type: DataTypes.STRING },
   link_whatsapp: { type: DataTypes.STRING },
-  link_facebook: { type: DataTypes.STRING },
+  link_telegram: { type: DataTypes.STRING },
   link_youtube: { type: DataTypes.STRING }
 })
 

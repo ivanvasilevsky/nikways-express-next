@@ -19,11 +19,13 @@ export async function getServerSideProps() {
 
   const categories = await $host.get('/category')
   const portfolios = await $host.get('/portfolio')
+  const contacts = await $host.get('/contact')
 
   return {
     props: {
       categories: categories.data,
       portfolios: portfolios.data,
+      contacts: contacts.data,
     }
   }
 }
