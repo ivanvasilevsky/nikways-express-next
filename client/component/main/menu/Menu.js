@@ -13,6 +13,7 @@ export default function Menu() {
   const router = useRouter()
 
   const [darkTheme, setDarkTheme] = useState(false)
+  const [topPos, setTopPos] = useState(false)
   const [menuActive, setMenuActive] = useState(false)
 
   useEffect(() => {
@@ -26,6 +27,12 @@ export default function Menu() {
     } else {
       setDarkTheme(false)
     }
+
+    if (window.scrollY > 540) {
+      setTopPos(true)
+    } else {
+      setTopPos(false)
+    }
   }
 
 
@@ -34,7 +41,7 @@ export default function Menu() {
   })
 
   return (
-    <div className={`menu ${menuActive ? 'active' : ''} ${darkTheme ? 'dark' : ''}`}>
+    <div className={`menu ${menuActive ? 'active' : ''} ${darkTheme ? 'dark' : ''} ${topPos ? 'top' : ''}`}>
       <div className="menu__back"></div>
 
       <div className="menu__mini">

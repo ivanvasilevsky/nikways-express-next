@@ -1,6 +1,6 @@
 import { $host } from "@/http/http"
 
-export default function Test() {
+export default function Custom500() {
 
 
   return (
@@ -12,7 +12,7 @@ export default function Test() {
 }
 
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
 
   const contacts = await $host.get('/contact')
 

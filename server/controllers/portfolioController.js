@@ -36,7 +36,7 @@ class portfolioController {
         return res.json(messageService.send(0, 'Проект с таким названием существует!'))
       }
 
-      const slug = slugify(name)
+      const slug = slugify(name).toLowerCase()
 
       const portfolio = await models.Portfolio.create({
         name,
@@ -237,7 +237,11 @@ class portfolioController {
 
   async getAll(req, res) {
     try {
-      const portfolio = await models.Portfolio.findAll()
+      const portfolio = await models.Portfolio.findAll(
+        {
+          attributes: ['id', 'slug', 'name', 'preview', 'tags']
+        }
+      )
       res.json(portfolio.reverse().slice(0, 12))
     } catch (e) {
       console.log(e)

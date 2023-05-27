@@ -27,7 +27,15 @@ class partnerController {
     try {
       let partners = await models.Partners.findAll()
 
-      res.json(partners)
+      let randomPartners = []
+      for (let i = 0; i < 6; i++) {
+        randomPartners.push(...partners.sort(() => Math.random() - 0.5))
+      }
+
+      res.json({
+        first: randomPartners.slice(0, randomPartners.length / 2),
+        second: randomPartners.slice(randomPartners.length / 2 + 1, randomPartners.length),
+      })
     } catch (e) {
       console.log(e)
     }

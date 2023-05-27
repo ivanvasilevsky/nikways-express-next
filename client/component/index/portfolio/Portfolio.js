@@ -6,8 +6,6 @@ import Link from "next/link"
 
 export default function Portfolio({ portfolios }) {
 
-  const [scroll, setScroll] = useState(0)
-
   const [scrollSecondRow, setScrollSecondRow] = useState(0)
   const [scrollLastRow, setScrollLastRow] = useState(0)
 
@@ -16,30 +14,34 @@ export default function Portfolio({ portfolios }) {
   const secondRow = useRef()
   const lastRow = useRef()
 
+  const handleScroll = () => {
+    const winHeight = window.innerHeight
+    const firstHeight = firstRow.current.offsetHeight
+
+    const blockHeight = scrollBlock.current.offsetHeight
+    const secondSize = Number(((secondRow.current.offsetHeight - winHeight) / (firstHeight - winHeight)).toFixed(2))
+    const lastSize = Number(((lastRow.current.offsetHeight - winHeight) / (firstHeight - winHeight)).toFixed(2))
+
+    let startScroll = window.scrollY - scrollBlock.current.offsetTop
+
+    if (startScroll > 0 && startScroll + winHeight < blockHeight) {
+      setScrollSecondRow((startScroll * secondSize - startScroll))
+      setScrollLastRow((startScroll * lastSize - startScroll))
+    }
+  }
+
   useEffect(() => {
-    window.addEventListener('scroll', () => {
-      setScroll(window.scrollY)
+    window.addEventListener('scroll', handleScroll)
 
-      const winHeight = window.innerHeight
-      const firstHeight = firstRow.current.offsetHeight
-
-      const blockHeight = scrollBlock.current.offsetHeight
-      const secondSize = Number(((secondRow.current.offsetHeight - winHeight) /( firstHeight - winHeight)).toFixed(2))
-      const lastSize = Number(((lastRow.current.offsetHeight - winHeight) / (firstHeight - winHeight)).toFixed(2))
-
-      let startScroll = window.scrollY - scrollBlock.current.offsetTop
-
-      if (startScroll > 0 && startScroll + winHeight < blockHeight) {
-        setScrollSecondRow((startScroll * secondSize - startScroll))
-        setScrollLastRow((startScroll * lastSize - startScroll))
-      }
-    })
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    }
 
   }, [])
 
   return (
     <Container className="portfolio">
-      <h2 className="portfolio__title">Наши работы</h2>
+      <h2 className="index__title">Наши работы</h2>
 
       <div className="portfolio__scroll__block" ref={scrollBlock}>
         <div
