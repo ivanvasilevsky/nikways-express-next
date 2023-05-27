@@ -10,8 +10,6 @@ export default function Home({ categories, portfolios }) {
     <>
       <Intro categories={categories}/>
       <Portfolio portfolios={portfolios}/>
-      <Intro categories={categories} />
-      <Intro categories={categories} />
     </>
   )
 }

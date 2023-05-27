@@ -1,2 +1,146 @@
-footer
+.footer
   margin-top: auto
+  color: $white
+  font-family: 'Mont'
+
+  & a
+    width: max-content
+    transition: .2s
+
+    &:hover
+      opacity: 0.7
+      transition: .2s
+
+.footer__outer
+  background: $black
+  position: relative
+  margin-top: 8vw
+
+.footer__top__svg
+  position: absolute
+  bottom: calc( 100% - 1px )
+  left: 50%
+  translate: -50% 0
+  width: 100%
+  scale: 1.03
+
+.footer__inner
+  display: flex
+  align-items: center
+  justify-content: space-between
+  gap: 30px
+  padding: 120px 0 100px
+
+  @media(max-width: 1600px)
+    padding: 80px 0 40px
+    gap: 50px
+
+  @media(max-width: 998px)
+    padding: 50px 0 20px
+
+.footer__biba
+  @media(max-width: 1600px)
+    max-width: 320px
+    margin-bottom: 30px
+
+  @media(max-width: 998px)
+    display: none
+
+.footer__block
+  position: relative
+  width: 100%
+
+.footer__arrow
+  position: absolute
+  top: -110px
+  right: 0
+  @include centerIn
+  width: 55px
+  height: 55px
+  border: 2px solid $cyan
+  border-radius: 50%
+  transition: .3s
+
+  @media(max-width: 1600px)
+    top: -85px
+
+  @media(max-width: 1170px)
+    display: none
+
+  &:hover
+    cursor: pointer
+    opacity: 0.4
+    transition: .3s
+
+  & img
+    max-height: 20px
+    rotate: -90deg
+
+
+.footer__floor
+  display: flex
+  width: 100%
+  gap: 30px
+
+  & .footer__col
+    @media(max-width: 620px)
+      border: none
+
+  @media(max-width: 620px)
+    flex-direction: column
+    gap: 0px
+
+  &:last-child
+    border-top: 2px solid $white
+
+    @media(max-width: 620px)
+      border: none
+
+    & .footer__col
+      @media(min-width: 620px)
+        border: none
+
+
+.footer__col
+  padding: 20px 0 25px
+  width: 50%
+  border-top: 2px solid $white
+  display: flex
+  flex-direction: column
+
+  @media(max-width: 620px)
+    margin: 0 auto
+    width: 250px
+
+.footer__title
+  color: $gray
+  margin-bottom: 5px
+  font-size: 22px
+
+  @media(max-width: 1170px)
+    font-size: 20px
+
+.footer__subtitle
+  margin-bottom: 4px
+  font-size: 22px
+
+  @media(max-width: 1170px)
+    font-size: 19px
+
+.footer__link
+  margin-bottom: 5px
+  color: $white
+
+.footer__social
+  display: flex
+  gap: 30px
+  margin: 5px 0 15px
+
+.footer__btn
+  @include centerIn
+  background: $white
+  color: $black
+  padding: 12px 30px
+  border-radius: 8px
+  font-size: 18px
+  text-transform: uppercase

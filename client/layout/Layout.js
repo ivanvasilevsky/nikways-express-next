@@ -1,3 +1,4 @@
+import Footer from "@/component/main/Footer"
 import HeadBlock from "@/component/main/HeadBlock"
 import Header from "@/component/main/Header"
 import Menu from "@/component/main/menu/Menu"
@@ -12,7 +13,7 @@ export default function Layout({ children }) {
         <Header/>
 
         {children}
-
+        <Footer/>
       </div>
     </>
   )
