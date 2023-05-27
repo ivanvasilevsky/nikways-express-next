@@ -1,0 +1,79 @@
+
+.portfolio__inner
+  padding: 70px 0
+  color: $white
+
+  @media(max-width: 1170px)
+    padding: 40px 0
+
+.portfolio__title
+  text-stroke: 2px $black
+  -webkit-text-stroke: 2px $black
+  color: $white
+  font-size: 48px
+  text-align: center
+  font-weight: 600
+
+  @media(max-width: 1170px)
+    font-size: 36px
+
+.portfolio__scroll__block
+  position: relative
+  display: flex
+  justify-content: space-between
+  align-items: flex-start
+  flex-wrap: wrap
+  margin: 50px 0 90px
+
+  @media(max-width: 1170px)
+    margin: 25px 0 30px
+
+.portfolio__row
+  width: calc( 33.3% - 15px )
+  display: flex
+  flex-direction: column
+  gap: 100px
+
+  & .portfolio__card:last-child
+      @media(max-width: 620px)
+        display: none
+
+  @media(max-width: 998px)
+    gap: 30px
+
+  @media(max-width: 350px)
+    gap: 20px
+
+  @media(max-width: 780px)
+    width: calc( 33.3% - 10px)
+
+  @media(max-width: 620px)
+    width: calc( 50% - 8px)
+
+  @media(max-width: 350px)
+    width: calc( 50% - 5px)
+
+.portfolio__row
+  &.scroll
+    position: absolute
+
+    @media(max-width: 620px)
+      position: initial
+
+  &:nth-child(2)
+    left: 50%
+    translate: -50% 0
+
+    & .portfolio__card:nth-last-child(2)
+      @media(max-width: 620px)
+        display: none
+
+    @media(max-width: 620px)
+      translate: initial
+
+
+  &:nth-child(3)
+    right: 0
+
+    @media(max-width: 620px)
+      display: none

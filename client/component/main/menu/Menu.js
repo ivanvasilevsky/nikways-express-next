@@ -21,7 +21,7 @@ export default function Menu() {
 
 
   const handleScroll = () => {
-    if (window.scrollY > 100) {
+    if (window.scrollY > 340) {
       setDarkTheme(true)
     } else {
       setDarkTheme(false)

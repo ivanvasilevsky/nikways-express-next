@@ -237,7 +237,8 @@ class portfolioController {
 
   async getAll(req, res) {
     try {
-
+      const portfolio = await models.Portfolio.findAll()
+      res.json(portfolio.reverse().slice(0, 12))
     } catch (e) {
       console.log(e)
     }

@@ -4,6 +4,7 @@
   max-height: 760px
   // height: 80vh
   background: $black
+  margin-bottom: 6vw
 
 
 .intro__inner
@@ -69,6 +70,12 @@
   position: relative
   margin-top: 20px
 
+  @media(max-width: 500px)
+    margin-top: 10px
+
+  @media(max-width: 350px)
+    margin-top: 0px
+
 .intro__slider
 
   & .slick-slide
@@ -99,11 +106,12 @@
       top: 130%
 
     @media(max-width: 500px)
+      top: 145%
       width: 50px
       height: 50px
 
     @media(max-width: 350px)
-      top: 150%
+      top: 160%
 
     &:hover
       cursor: pointer

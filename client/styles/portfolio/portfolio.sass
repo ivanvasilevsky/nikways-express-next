@@ -1,0 +1,64 @@
+.portfolio__card
+  display: flex
+  flex-direction: column
+  font-family: 'Mont'
+
+
+.portfolio__card__link
+  transition: .4s
+  &:hover
+    opacity: 0.7
+    transition: .2s
+
+.portfolio__card__preview
+  border-radius: 10px
+  width: 100%
+  min-height: 230px
+  max-height: 610px
+  object-fit: cover
+
+  @media(max-width: 780px)
+    min-height: 160px
+    max-height: 400px
+
+  @media(max-width: 450px)
+    min-height: 120px
+
+
+.portfolio__card__title
+  color: $black
+  margin: 20px 0 10px
+  font-weight: 700
+  text-transform: uppercase
+  font-size: 22px
+
+  @media(max-width: 1170px)
+    font-size: 20px
+
+  @media(max-width: 998px)
+    font-size: 16px
+    margin: 12px 0 8px
+
+  @media(max-width: 780px)
+    font-size: 14px
+
+  @media(max-width: 350px)
+    font-size: 12px
+
+.portfolio__card__tags
+  display: flex
+  gap: 16px
+
+  @media(max-width: 620px)
+    gap: 10px
+
+.portfolio__card__tag
+  color: $gray
+  font-size: 14px
+  font-weight: 500
+
+  @media(max-width: 620px)
+    font-size: 12px
+
+  @media(max-width: 350px)
+    font-size: 10px

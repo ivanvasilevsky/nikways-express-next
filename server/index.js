@@ -16,6 +16,7 @@ app.use(cors())
 app.use(fileUpload({}))
 
 app.use('/api', routes)
+app.use('/img', express.static('static'))
 
 
 const appStart = async () => {
