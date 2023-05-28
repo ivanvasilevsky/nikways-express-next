@@ -25,9 +25,10 @@ export default function FormIndex() {
     }
 
 
-    const request = await $host.post('/send_form', {
+    const request = await $host.post('/send_mini_form', {
       fio,
-      phone
+      phone,
+      title: 'Форма на главной'
     })
 
     if (request.data.status == 1) {

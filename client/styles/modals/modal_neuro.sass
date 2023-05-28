@@ -1,0 +1,43 @@
+
+
+.modal__neuro__block
+  z-index: 7000
+  @include bg('/photo/neuro_bg.jpg')
+  border-radius: 135px
+  overflow: hidden
+  position: relative
+  max-width: 870px
+  padding: 70px
+
+.modal__neuro__cross
+  position: absolute
+  top: 70px
+  right: 70px
+  transition: .2s
+
+  &:hover
+    opacity: 0.6
+    cursor: pointer
+
+.modal__neuro__title
+  font-size: 38px
+  color: $white
+  font-weight: 400
+  margin: 0px 0 40px
+
+.modal__neuro__galleries
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+
+  & img
+    width: calc( 50% - 10px )
+    margin-bottom: 20px
+    max-width: 500px
+    border-radius: 12px
+
+.modal__neuro__text
+  margin-top: 50px
+  font-family: 'Mont'
+  color: $white
+  font-size: 17px

@@ -3,6 +3,6 @@ import sendMailController from "../controllers/sendMailController.js"
 
 const router = Router()
 
-router.post('/send_form', sendMailController.send)
+router.post('/send_mini_form', sendMailController.sendMini)
 
 export default router

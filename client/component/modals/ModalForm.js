@@ -27,9 +27,10 @@ export default function ModalForm({info, modalOff}) {
     }
 
 
-    const request = await $host.post('/send_form', {
+    const request = await $host.post('/send_mini_form', {
       fio,
-      phone
+      phone,
+      title: info.name
     })
 
     if (request.data.status == 1) {

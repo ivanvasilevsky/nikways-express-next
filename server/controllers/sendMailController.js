@@ -3,12 +3,12 @@ import mailService from "../services/mailService.js"
 import messageService from "../services/messageService.js"
 
 class sendMailController {
-  async send(req, res) {
+  async sendMini(req, res) {
     try {
 
-      const { fio, phone } = req.body
+      const { fio, phone, title } = req.body
 
-      await mailService.sendMail('Заявка с Nikways', mailSample.miniForm(fio, phone))
+      await mailService.sendMail('Заявка с Nikways', mailSample.miniForm(fio, phone, title))
 
       res.json(messageService.send(1, 'Сообщение отправлено!'))
 

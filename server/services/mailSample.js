@@ -1,5 +1,5 @@
 class emailSample {
-  miniForm(fio, phone) {
+  miniForm(fio, phone, title) {
 
     const bodyHeader = `
     <!DOCTYPE html>
@@ -26,6 +26,7 @@ class emailSample {
       <h1>Заявка с Nikways</h1>
       <p>ФИО: <span>${fio}</span></p>
       <p>Телефон: <span>${phone}</span></p>
+      <p>Тип: <span>${title}</span></p>
       ${bodyFooter}
     `
   }

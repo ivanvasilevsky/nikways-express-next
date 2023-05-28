@@ -10,7 +10,7 @@ export default function Service({services}) {
 
   const settings = {
     arrows: false,
-    // autoplay: true,
+    autoplay: true,
     infinite: true,
     autoplaySpeed: 8000,
     speed: 800,

@@ -1,5 +1,6 @@
 import FormIndex from "@/component/index/form/FormIndex"
 import Intro from "@/component/index/intro/Intro"
+import Neuro from "@/component/index/neuro/Neuro"
 import Partner from "@/component/index/partner/Partner"
 import Portfolio from "@/component/index/portfolio/Portfolio"
 import Service from "@/component/index/service/Service"
@@ -15,6 +16,7 @@ export default function Home({ categories, portfolios, partners, services }) {
       <Portfolio portfolios={portfolios}/>
       <Service services={services}/>
       <FormIndex/>
+      <Neuro/>
       <Partner partners={partners}/>
     </>
   )
