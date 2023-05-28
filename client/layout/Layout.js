@@ -7,6 +7,9 @@ export default function Layout({ children }) {
   return (
     <>
       <HeadBlock title={children.props.title}/>
+
+      <div id="modal"></div>
+
       <div className='page'>
 
         <Menu/>

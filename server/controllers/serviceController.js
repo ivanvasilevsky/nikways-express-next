@@ -1,3 +1,4 @@
+import { where } from "sequelize"
 import models from "../models/models.js"
 import fileService from "../services/fileService.js"
 import messageService from "../services/messageService.js"
@@ -27,11 +28,16 @@ class serviceController {
     try {
       const { type, limit } = req.query
 
-      let services = await models.Services.findAll()
+      let services
 
       if (type) {
-        services = services.filter(item => item.type == type)
+        const idsType = type.split('-')
+
+        services = await models.Services.findAll({ where: { type: idsType }})
+      } else {
+        services = await models.Services.findAll()
       }
+
       if (limit) {
         services = services.slice(0, limit)
       }

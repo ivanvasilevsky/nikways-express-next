@@ -1,16 +1,18 @@
 import Intro from "@/component/index/intro/Intro"
 import Partner from "@/component/index/partner/Partner"
 import Portfolio from "@/component/index/portfolio/Portfolio"
+import Service from "@/component/index/service/Service"
 import { $host } from "@/http/http"
 
 
-export default function Home({ categories, portfolios, partners }) {
+export default function Home({ categories, portfolios, partners, services }) {
 
 
   return (
     <>
       <Intro categories={categories}/>
       <Portfolio portfolios={portfolios}/>
+      <Service services={services}/>
       <Partner partners={partners}/>
     </>
   )
@@ -23,6 +25,7 @@ export async function getServerSideProps() {
   const portfolios = await $host.get('/portfolio')
   const contacts = await $host.get('/contact')
   const partners = await $host.get('/partner')
+  const services = await $host.get('/services?type=1')
 
   return {
     props: {
@@ -30,6 +33,7 @@ export async function getServerSideProps() {
       portfolios: portfolios.data,
       contacts: contacts.data,
       partners: partners.data,
+      services: services.data,
     }
   }
 }

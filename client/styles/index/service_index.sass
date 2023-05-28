@@ -1,0 +1,148 @@
+.service__index
+  margin: 60px 0
+
+  @media(max-width: 720px)
+    margin: 40px 0
+
+.service__index__slider
+  width: 100vw
+  margin: 60px 0 50px
+
+  @media(max-width: 720px)
+    margin: 30px 0 40px
+
+.service__index__slide
+  position: relative
+  width: 970px
+  height: 420px
+  margin: 0 20px
+  font-family: 'Mont'
+
+  @media(max-width: 1170px)
+    width: 670px
+    height: 292px
+
+  @media(max-width: 720px)
+    width: 80vw
+    height: 35vw
+    margin: 0 10px
+
+  @media(max-width: 600px)
+    border: 1px solid $black
+    border-radius: 10px
+    height: 55vw
+
+  @media(max-width: 350px)
+    height: 66vw
+
+.service__index__slide__inner
+  display: flex
+  justify-content: space-between
+  height: 100%
+
+
+.service__index__slide__outer
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  pointer-events: none
+
+  @media(max-width: 600px)
+    display: none
+
+.service__index__slide__more
+  position: absolute
+  bottom: 0
+  left: 0
+  padding: 6px 20px
+  display: flex
+  align-items: center
+  font-size: 28px
+  transition: .2s
+
+  @media(max-width: 1170px)
+    font-size: 18px
+
+  @media(max-width: 720px)
+    font-size: 14px
+    padding: 2px 10px
+
+  @media(max-width: 600px)
+    padding: 8px 18px
+
+  & img
+    @media(max-width: 1170px)
+      max-width: 18px
+
+    @media(max-width: 720px)
+      max-width: 12px
+
+  & span
+    margin-bottom: 6px
+    margin-right: 16px
+
+    @media(max-width: 1170px)
+      margin-right: 8px
+
+  &:hover
+    opacity: 0.4
+    transition: .2s
+
+.service__index__slide__info
+  padding: 40px
+  max-width: 500px
+
+  @media(max-width: 1170px)
+    padding: 15px 20px
+    max-width: 400px
+
+  @media(max-width: 530px)
+    max-width: 100%
+
+.service__index__slide__title
+  font-size: 32px
+  font-weight: 700
+  margin-bottom: 30px
+
+  @media(max-width: 1170px)
+    font-size: 26px
+    margin-bottom: 5px
+
+  @media(max-width: 720px)
+    font-size: 18px
+
+.service__index__slide__text
+  font-size: 22px
+  line-height: 1.35
+
+  @media(max-width: 1170px)
+    font-size: 18px
+
+  @media(max-width: 720px)
+    font-size: 14px
+    line-height: 1.1
+
+  @media(max-width: 600px)
+    font-size: 16px
+
+  @media(max-width: 350px)
+    font-size: 14px
+
+
+.service__index__slide__photo
+  translate: 14px -10px
+  object-fit: contain
+  max-height: 430px
+
+  @media(max-width: 1170px)
+    max-height: 310px
+    max-width: 380px
+
+  @media(max-width: 720px)
+    max-height: 30vw
+    max-width: 35vw
+    margin-top: 30px
+
+  @media(max-width: 530px)
+    display: none
