@@ -1,12 +1,22 @@
 .partner
   padding: 80px 0 40px
 
+  @media(max-width: 1600px)
+    padding: 60px 0 30px
+
 .partner__slide
   height: 200px
   width: 100vw
   margin-top: 45px
   position: relative
   transition: 0
+
+  @media(max-width: 1600px)
+    height: 170px
+
+  @media(max-width: 600px)
+    height: 120px
+    margin-top: 20px
 
   &.animate
     transition: .6s
@@ -19,6 +29,13 @@
   margin-bottom: 50px
   width: max-content
 
+  @media(max-width: 1600px)
+    gap: 60px
+
+  @media(max-width: 600px)
+    gap: 40px
+
+
   &:first-child
     left: 0
     top: 0
@@ -29,6 +46,12 @@
     right: 0
     animation: cubic-bezier(.2,0,.8,1) 90s partnerRight infinite
 
+    @media(max-width: 1600px)
+      top: 90px
+
+    @media(max-width: 600px)
+      top: 70px
+
 
 
 .partner__item
@@ -38,6 +61,16 @@
   max-height: 50px
   filter: grayscale(1)
   transition: .6s
+
+  @media(max-width: 1600px)
+    max-width: 180px
+
+  @media(max-width: 600px)
+    max-width: 130px
+
+  &.active
+    filter: grayscale(0)
+    transition: .5s
 
   & img
     object-fit: contain
@@ -68,9 +101,11 @@
 
 
 .partner__info
-  margin-top: 60px
   font-family: 'Mont'
   font-size: 18px
+  max-width: 900px
+  margin: 30px auto 0
+  overflow: hidden
 
 .partner__info__inner
   display: flex
@@ -78,6 +113,8 @@
   align-items: center
 
 .partner__video
+  transform-origin:  top
+  background: $gray
   overflow: hidden
   border-radius: 10px
   position: relative
@@ -94,10 +131,20 @@
 
 .partner__info__logo
   margin: 30px 0 20px
+  height: 40px
+  object-fit: contain
+  max-width: 220px
+
+  @media(max-width: 600px)
+    max-width: 180px
+    margin: 20px 0 15px
 
 .partner__info__name
   font-weight: 400
   margin-bottom: 10px
+
+  @media(max-width: 600px)
+    margin-bottom: 5px
 
 .partner__info__desc
   font-weight: 200

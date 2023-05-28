@@ -33,7 +33,7 @@ export default function Partner({partners}) {
     }
   }
 
-    const mouseLeave = () => {
+  const mouseLeave = () => {
     setMouseX(0)
     setMouseY(0)
     setMouseMomentX(0)
@@ -58,12 +58,12 @@ export default function Partner({partners}) {
         <div className={`partner__slide ${blockMove ? 'animate' : ''}`} style={{ translate: `${-mouseX}px ${-mouseY}px` }}>
           <div className="partner__line">
             {partners.first.map((item, i) => (
-              <PartnerItem setInfoOn={setInfoOn} key={i} item={item}/>
+              <PartnerItem setInfoOn={setInfoOn} key={i} item={item} selectId={info && info.id}/>
             ))}
           </div>
           <div className="partner__line">
             {partners.second.map((item, i) => (
-              <PartnerItem setInfoOn={setInfoOn} key={i + 10} item={item} />
+              <PartnerItem setInfoOn={setInfoOn} key={i + 10} item={item} selectId={info && info.id} />
             ))}
           </div>
         </div>
