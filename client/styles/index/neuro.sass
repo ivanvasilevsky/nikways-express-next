@@ -4,6 +4,10 @@
   margin: 8vw 0
   padding: 80px 0 10px
 
+  @media(max-width: 1600px)
+    padding: 50px 0 10px
+
+
 .neuro__wave
   position: absolute
   left: 50%
@@ -33,13 +37,25 @@
     background: $black
     box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 1)
 
+    @media(max-width: 380px)
+      height: 40px
+
   & span
     font-size: 48px
+
+    @media(max-width: 550px)
+      font-size: 40px
+
+    @media(max-width: 380px)
+      font-size: 32px
 
 .neuro__title__center
   color: $cyan
   margin: -16px 0
   z-index: 100
+
+  @media(max-width: 380px)
+    margin: -10px 0
 
 .neuro__title__back
   text-stroke: 2px $cyan
@@ -52,9 +68,34 @@
   max-width: 1000px
   margin: 60px auto 10px
 
+  @media(max-width: 1600px)
+    font-size: 20px
+    margin: 30px auto 10px
+    padding: 0 20px
+
+  @media(max-width: 380px)
+    font-size: 18px
+
+
 .neuro__brain
+  position: relative
   margin: 0 auto
   max-width: 1200px
+
+  @media(max-width: 1600px)
+    max-width: 1000px
+
+  @media(max-width: 998px)
+    width: 100vw
+
+  @media(max-width: 650px)
+    width: 250vw
+    translate: -46% 0
+    left: 50%
+    max-height: 400px
+    overflow: hidden
+    object-fit: cover
+    object-position: top
 
 .neuro__blocks
   position: absolute
@@ -62,6 +103,12 @@
   left: 0
   width: 100%
   height: 100%
+
+  &::after
+    @include pseudo(100%, 150px)
+    background-image: linear-gradient(to top, #000000, #00000000)
+    position: absolute
+    bottom: 0
 
   & .container
     height: 100%
@@ -78,11 +125,38 @@
   backdrop-filter: blur(40px)
   bottom: 50%
   left: 200px
+  z-index: 100
+
+  @media(max-width: 1600px)
+    bottom: 45%
+
+  @media(max-width: 998px)
+    left: 0px
+    bottom: 35%
+
+  @media(max-width: 650px)
+    bottom: 28%
+    left: 50%
+    translate: -50% 0
+    width: max-content
 
   &:last-child
     left: initial
     right: 250px
     bottom: 350px
+
+    @media(max-width: 1600px)
+      bottom: 250px
+
+    @media(max-width: 998px)
+      right: 0
+      bottom: 16%
+
+    @media(max-width: 650px)
+      bottom: 60px
+      left: 50%
+      translate: -50% 0
+      width: max-content
 
 .neuro__block__title
   font-family: 'Mont'

@@ -9,11 +9,28 @@
   max-width: 870px
   padding: 70px
 
+  @media(max-width: 1600px)
+    max-width: 650px
+    border-radius: 70px
+    padding: 40px
+
+  @media(max-width: 660px)
+    padding: 20px
+    border-radius: 30px
+
 .modal__neuro__cross
   position: absolute
   top: 70px
   right: 70px
   transition: .2s
+
+  @media(max-width: 1600px)
+    top: 40px
+    right: 40px
+
+  @media(max-width: 660px)
+    top: 15px
+    right: 20px
 
   &:hover
     opacity: 0.6
@@ -24,6 +41,15 @@
   color: $white
   font-weight: 400
   margin: 0px 0 40px
+
+  @media(max-width: 1600px)
+    font-size: 30px
+
+  @media(max-width: 660px)
+    margin-bottom: 10px
+
+  @media(max-width: 380px)
+    font-size: 26px
 
 .modal__neuro__galleries
   display: flex
@@ -36,8 +62,23 @@
     max-width: 500px
     border-radius: 12px
 
+    @media(max-width: 660px)
+      border-radius: 8px
+      width: calc( 50% - 5px )
+      margin-bottom: 10px
+
 .modal__neuro__text
   margin-top: 50px
   font-family: 'Mont'
   color: $white
   font-size: 17px
+
+  @media(max-width: 1600px)
+    margin-top: 30px
+
+  @media(max-width: 660px)
+    margin-top: 10px
+
+  @media(max-width: 380px)
+    font-size: 16px
+    line-height: 1.1
