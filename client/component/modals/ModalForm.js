@@ -74,7 +74,7 @@ export default function ModalForm({info, modalOff}) {
                 setFio(e.target.value)
                 setFioError(false)
               }} type="text" placeholder="ФИО"/>
-            <ReactInputMask mask='+7 999 999 9999' className={`input ${phoneError ? 'error' : ''}`} value={phone} onChange={(e) => {
+              <ReactInputMask mask='+7 999 999 9999' className={`input ${phoneError ? 'error' : ''}`} value={phone} onChange={(e) => {
                 setPhone(e.target.value)
                 setPhoneError(false)
               }} type="text" placeholder="ТЕЛЕФОН" />
