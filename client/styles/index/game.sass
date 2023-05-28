@@ -1,0 +1,119 @@
+.game
+  background: $black
+  position: relative
+  margin: 9vw 0 0
+  padding: 160px 0
+  font-family: 'Mont'
+
+  @media(max-width: 1600px)
+    padding: 100px 0
+
+  @media(max-width: 650px)
+    padding: 70px 0
+
+
+.game__wave
+  position: absolute
+  left: 50%
+  translate: -50% 0
+  width: 100%
+  scale: 1.03
+
+  &:first-child
+    bottom: calc( 100% - 2px )
+
+  &:nth-child(2)
+    top: calc( 100% - 2px )
+
+.game__inner
+  padding-right: 230px
+
+  @media(max-width: 1170px)
+    padding-right: 60px
+
+  @media(max-width: 998px)
+    padding-right: 0px
+
+.game__block
+  position: relative
+  background: $cyan_w
+  border-radius: 12px
+  padding: 60px 50px 90px
+  display: flex
+  flex-direction: column
+
+  @media(max-width: 1170px)
+    padding: 30px 40px 40px
+
+  @media(max-width: 760px)
+    padding: 20px 25px 40px
+
+  @media(max-width: 350px)
+    padding: 15px 20px 20px
+
+.game__title
+  font-size: 46px
+  font-weight: 700
+  line-height: 1.1
+
+  @media(max-width: 1170px)
+    font-size: 38px
+
+  @media(max-width: 650px)
+    font-size: 6vw
+
+  & span
+    color: $purple
+
+.game__btn
+  margin: 35px 0 15px
+  background: $white
+  font-size: 20px
+
+  & img
+    width: 9px
+    margin-top: 5px
+
+.game__subtitle
+  font-size: 24px
+  margin-bottom: 35px
+
+.game__desc
+  max-width: 350px
+  font-size: 18px
+  font-weight: 200
+  line-height: 1.3
+
+.game__image
+  position: absolute
+  top: -70px
+  right: -230px
+
+  @media(max-width: 1170px)
+    max-width: 480px
+    top: -20px
+    right: -120px
+
+  @media(max-width: 998px)
+    max-width: 420px
+    top: 0px
+    right: -120px
+
+  @media(max-width: 760px)
+    top: 20px
+    right: -190px
+
+  @media(max-width: 670px)
+    right: -250px
+
+  @media(max-width: 600px)
+    max-width: 200px
+    right: -100px
+    top: 10px
+
+  @media(max-width: 380px)
+    right: -120px
+    top: -10px
+
+  @media(max-width: 350px)
+    right: -140px

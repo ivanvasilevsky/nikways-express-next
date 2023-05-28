@@ -1,4 +1,5 @@
 import FormIndex from "@/component/index/form/FormIndex"
+import Game from "@/component/index/game/Game"
 import Intro from "@/component/index/intro/Intro"
 import Neuro from "@/component/index/neuro/Neuro"
 import Partner from "@/component/index/partner/Partner"
@@ -18,6 +19,7 @@ export default function Home({ categories, portfolios, partners, services }) {
       <FormIndex/>
       <Neuro/>
       <Partner partners={partners}/>
+      <Game/>
     </>
   )
 }
