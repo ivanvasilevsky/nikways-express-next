@@ -48,15 +48,21 @@ export default function Menu() {
         <div className="container">
           <div className="menu__mini__inner">
             <div className={`menu__mini__block ${router.asPath != '/' ? 'active' : ''}`}>
-              <Link className="menu__mini__link" href="/">На главную</Link>
-              {!router.asPath.includes('portfolio') &&
-                <Link className="menu__mini__link" href="/portfolio/all">Портфолио</Link>
+              {!router.asPath.includes('project') ?
+              <>
+                <Link className="menu__mini__link" href="/">На главную</Link>
+                {!router.asPath.includes('portfolio') &&
+                  <Link className="menu__mini__link" href="/portfolio/all">Портфолио</Link>
+                }
+                {!router.asPath.includes('services') &&
+                  <Link className="menu__mini__link" href="/services">Услуги</Link>
+                }
+                <Link className="menu__mini__link" href="/form">Заявка</Link>
+                <Link className="menu__mini__link" href="/about">О нас</Link>
+              </>
+              :
+              <button onClick={router.back} className="btn menu__mini__link" href="/portfolio/all">Назад</button>
               }
-              {!router.asPath.includes('services') &&
-                <Link className="menu__mini__link" href="/services">Услуги</Link>
-              }
-              <Link className="menu__mini__link" href="/form">Заявка</Link>
-              <Link className="menu__mini__link" href="/about">О нас</Link>
             </div>
           </div>
         </div>

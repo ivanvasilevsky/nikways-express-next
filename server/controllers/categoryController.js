@@ -87,7 +87,9 @@ class categoryController {
       }
 
       if (limit) {
-        filterPortfolio = filterPortfolio.slice(0, limit)
+        filterPortfolio = {
+          portfolios: filterPortfolio.portfolios.slice(0, limit)
+        }
       }
 
       res.json({

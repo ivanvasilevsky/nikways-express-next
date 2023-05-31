@@ -1,0 +1,250 @@
+.project
+  font-family: 'Mont'
+
+.project__banner
+  width: 100vw
+  height: 35vw
+  max-height: 640px
+  min-height: 300px
+  position: relative
+
+.project__banner__bg
+  width: 100%
+  height: 100%
+  object-fit: cover
+
+.project__title
+  position: absolute
+  top: 50%
+  left: 50%
+  translate: -50% -50%
+  color: $white
+  font-size: 48px
+  font-weight: 400
+  letter-spacing: 1px
+
+.project__head
+  margin: 80px 0 50px
+  display: flex
+  justify-content: space-between
+  gap: 20px
+
+.project__head__item
+  font-size: 22px
+
+  & span
+    font-weight: 700
+    margin-right: 30px
+
+.project__video
+  margin-bottom: 50px
+  border-radius: 16px
+  background: $gray
+  overflow: hidden
+  position: relative
+  width: 100%
+  padding-bottom: 56.25%
+
+.project__video iframe
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  border: 0
+
+.project__review
+  display: flex
+  gap: 30px
+  margin-bottom: 80px
+
+.project__review__item
+  width: 50%
+
+.project__review__title
+  font-size: 28px
+  margin-bottom: 40px
+  font-weight: 700
+
+.project__review__item__video
+  border-radius: 12px
+  overflow: hidden
+  background: $gray
+  position: relative
+  width: 100%
+  padding-bottom: 56.25%
+
+.project__review__item__video iframe
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  border: 0
+
+.project__info
+  background: $purple
+  position: relative
+  padding: 30px 0
+  margin: 180px 0
+  color: $white
+
+  @media (max-width: 998px)
+    margin: 16vw 0
+
+.project__info__wave
+  position: absolute
+  width: 100%
+  scale: 1.03
+
+  &:first-child
+    bottom: calc( 100% - 1px )
+
+  &:nth-child(2)
+    top: calc( 100% - 1px )
+
+.project__info__title
+  text-align: center
+  font-weight: 700
+  font-size: 36px
+  text-transform: uppercase
+  margin-bottom: 50px
+
+.project__info__block
+  display: grid
+  grid-template-columns: repeat(12, 1fr)
+  gap: 50px
+
+.project__info__item
+  grid-column: span 4
+
+.project__info__subtitle
+  font-size: 28px
+  font-weight: 700
+  margin-bottom: 16px
+
+.project__info__text
+  font-size: 22px
+  font-weight: 200
+
+.project__info__item__price
+  display: flex
+  gap: 14px
+
+.project__info__dollar
+  max-height: 50px
+  opacity: 0.4
+
+  &.active
+    opacity: 1
+
+.project__main__title
+  font-family: 'pro'
+  font-size: 52px
+  text-align: center
+  margin-bottom: 24px
+  color: $white
+  -webkit-text-stroke: 1px $black
+  text-stroke: 1px $black
+
+  @media (max-width: 998px)
+    font-size: 6vw
+
+  @media (max-width: 700px)
+    font-size: 8vw
+
+  @media (max-width: 500px)
+    font-size: 10vw
+
+.project__idea
+  margin-bottom: 80px
+
+
+.project__idea__block
+  display: flex
+  gap: 30px
+  align-items: center
+
+  @media (max-width: 998px)
+    flex-direction: column
+
+.project__idea__photo
+  width: 50%
+  height: 320px
+  border-radius: 16px
+  overflow: hidden
+
+  @media (max-width: 998px)
+    width: 100%
+
+  @media (max-width: 600px)
+    height: 250px
+
+  & img
+    width: 100%
+    height: 100%
+    object-fit: cover
+
+.project__idea__text
+  width: 50%
+  font-size: 22px
+
+  @media (max-width: 998px)
+    width: 100%
+
+  @media (max-width: 600px)
+    font-size: 18px
+
+
+.project__present__block
+  display: grid
+  grid-template-columns: repeat(12, 1fr)
+  gap: 40px
+
+.project__present__item
+  overflow: hidden
+  border-radius: 16px
+  grid-column: span 4
+  height: 300px
+  transition: .2s
+
+  & img
+    width: 100%
+    height: 100%
+    object-fit: cover
+
+  &:hover
+    box-shadow: $shadow_purp
+
+
+.project__dev__block
+  display: grid
+  grid-template-columns: repeat(12, 1fr)
+  grid-template-rows: repeat(2, 1fr)
+  gap: 30px
+
+.project__dev__item
+  overflow: hidden
+  border-radius: 16px
+  grid-column: span 4
+  grid-row: span 1
+  max-height: 160px
+
+  & img
+    width: 100%
+    height: 100%
+    object-fit: cover
+
+  &:nth-child(4n+1)
+    grid-column: span 8
+    grid-row: span 2
+    max-height: 360px
+
+
+
+
+
+.project__portfolio__grid
+  display: grid
+  grid-template-columns: repeat(12, 1fr)
+  gap: 30px
