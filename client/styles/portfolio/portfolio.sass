@@ -1,8 +1,100 @@
+.filter
+  margin-top: 50px
+
+  @media(max-width: 700px)
+    margin-top: 20px
+
+.filter__category
+  display: flex
+  gap: 10px
+  overflow-x: scroll
+  @include hideScroll
+
+.filter__category__item
+  padding: 10px 20px 4px
+  border-radius: 10px 10px 0 0
+  border: 1px solid $black
+  font-size: 28px
+  font-weight: 800
+  color: $white
+  background: $white
+  transition: .2s
+  -webkit-text-stroke: 1px $black
+  text-stroke: 1px $black
+  z-index: 10
+  position: relative
+
+  @media(max-width: 700px)
+    font-size: 22px
+    padding: 7px 10px 2px
+
+  &:hover
+    color: $white
+    background: $black
+
+  &.active
+    color: $black
+    transition: .2s
+    border-bottom: $white
+    pointer-events: none
+
+    &:hover
+      color: $black
+      background: $white
+
+.filter__block
+  position: relative
+  z-index: 5
+  margin-top: -1px
+  padding: 30px 50px
+  border: 1px solid $black
+  border-radius: 0 10px 10px 10px
+  display: grid
+  grid-template-columns: repeat(12, 1fr)
+  gap: 20px 30px
+
+  @media(max-width: 700px)
+    padding: 20px 10px
+    gap: 10px 20px
+
+.filter__item
+  grid-column: span 3
+  font-size: 22px
+  font-family: 'Mont'
+  padding: 5px
+  border-radius: 5px
+  transition: .15s
+
+  @media(max-width: 700px)
+    font-size: 18px
+    grid-column: span 4
+
+  &:hover
+    color: $white
+    background: $black
+
+  &.active
+    color: $white
+    background: $black
+
+
+.portfolio__grid
+  display: grid
+  grid-template-columns: repeat(12, 1fr)
+  // grid-template-rows: masonry
+  gap: 30px
+
+  @media(max-width: 600px)
+    gap: 15px
+
 .portfolio__card
   display: flex
   flex-direction: column
   font-family: 'Mont'
+  grid-column: span 4
 
+  @media(max-width: 600px)
+    grid-column: span 6
 
 .portfolio__card__link
   transition: .4s

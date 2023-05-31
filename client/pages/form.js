@@ -12,13 +12,7 @@ export default function Home({ categories, portfolios, partners, services }) {
 
   return (
     <>
-      <Intro categories={categories}/>
-      <Portfolio portfolios={portfolios}/>
-      <Service services={services}/>
-      <FormIndex/>
-      <Neuro/>
-      <Partner partners={partners}/>
-      <Game/>
+      <p>test form</p>
     </>
   )
 }
@@ -26,17 +20,17 @@ export default function Home({ categories, portfolios, partners, services }) {
 
 export async function getServerSideProps() {
 
+  const categories = await $host.get('/category')
+  const portfolios = await $host.get('/portfolio')
   const contacts = await $host.get('/contact')
-  const categories = await $host.get('/category_all')
-  const portfolios = await $host.get('/project')
   const partners = await $host.get('/partner')
   const services = await $host.get('/services?type=1')
 
   return {
     props: {
-      contacts: contacts.data,
       categories: categories.data,
       portfolios: portfolios.data,
+      contacts: contacts.data,
       partners: partners.data,
       services: services.data,
     }

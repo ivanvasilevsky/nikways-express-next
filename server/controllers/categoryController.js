@@ -34,13 +34,26 @@ class categoryController {
     try {
       const { slug } = req.params
       const { limit, tag } = req.query
-      let category = await models.Categories.findOne({
-        where: { slug },
-        include: [{
-          model: models.Portfolio,
-          attributes: ['id', 'slug', 'name', 'preview', 'tags']
-        }]
-      })
+      let category
+
+      if (slug != 'all') {
+        category = await models.Categories.findOne({
+          where: { slug },
+          include: [{
+            model: models.Portfolio,
+            attributes: ['id', 'slug', 'name', 'preview', 'tags']
+          }]
+        })
+      } else {
+        category = {
+          id: 0,
+          name: 'Портфолио',
+          slug: 'all',
+          portfolios: await models.Portfolio.findAll({
+            attributes: ['id', 'slug', 'name', 'preview', 'tags']
+          })
+        }
+      }
 
       let filters = []
 
@@ -68,6 +81,9 @@ class categoryController {
           }
           i = 0
         })
+        filterPortfolio = {
+          portfolios: filterPortfolio
+        }
       }
 
       if (limit) {

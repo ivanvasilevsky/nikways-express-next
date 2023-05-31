@@ -9,7 +9,7 @@ export default function Game() {
       <div className="container">
         <div className="game__inner">
           <div className="game__block">
-            <Image className="game__image" qua src="/icons/gamepad.png" width={608} height={580} alt="gamepad" quality={95}/>
+            <Image className="game__image" src="/icons/gamepad.png" width={608} height={580} alt="gamepad" quality={95}/>
 
             <h2 className="game__title">Сыграй в игру <br/> и получи <span>Бонус</span></h2>
 

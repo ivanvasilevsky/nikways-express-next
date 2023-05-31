@@ -5,8 +5,7 @@ export default function Custom500() {
 
   return (
     <>
-      <div className="test_block"></div>
-      <div className="test_block2"></div>
+      <p>Ошибка сервера</p>
     </>
   )
 }

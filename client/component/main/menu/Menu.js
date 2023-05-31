@@ -49,9 +49,14 @@ export default function Menu() {
           <div className="menu__mini__inner">
             <div className={`menu__mini__block ${router.asPath != '/' ? 'active' : ''}`}>
               <Link className="menu__mini__link" href="/">На главную</Link>
-              <Link className="menu__mini__link" href="/">Портфолио</Link>
-              <Link className="menu__mini__link" href="/">Заявка</Link>
-              <Link className="menu__mini__link" href="/">О нас</Link>
+              {!router.asPath.includes('portfolio') &&
+                <Link className="menu__mini__link" href="/portfolio/all">Портфолио</Link>
+              }
+              {!router.asPath.includes('services') &&
+                <Link className="menu__mini__link" href="/services">Услуги</Link>
+              }
+              <Link className="menu__mini__link" href="/form">Заявка</Link>
+              <Link className="menu__mini__link" href="/about">О нас</Link>
             </div>
           </div>
         </div>
@@ -66,13 +71,13 @@ export default function Menu() {
         }
 
         <div className="menu__main__inner">
-          <LinkMenu title="Портфолио" link="/test"/>
-          <LinkMenu title="Услуга" link="/" />
-          <LinkMenu title="О нас" link="/" />
+          <LinkMenu title="Портфолио" link="/portfolio/all"/>
+          <LinkMenu title="Услуга" link="/services" />
+          <LinkMenu title="О нас" link="/about" />
           <LinkMenu title="Нейромаркетинг" link="/" />
           <LinkMenu title="Игра о нас" link="/" />
           <LinkMenu title="Личный кабинет" link="/" />
-          <LinkMenu title="Оставить заявку" link="/" />
+          <LinkMenu title="Оставить заявку" link="/form" />
         </div>
       </div>
 

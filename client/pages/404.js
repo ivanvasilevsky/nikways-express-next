@@ -5,8 +5,7 @@ export default function Custom404() {
 
   return (
     <>
-      <div className="test_block"></div>
-      <div className="test_block2"></div>
+      <p>Страница не найдена</p>
     </>
   )
 }
@@ -15,7 +14,6 @@ export default function Custom404() {
 export async function getStaticProps() {
 
   const contacts = await $host.get('/contact')
-
   return {
     props: {
       contacts: contacts.data,

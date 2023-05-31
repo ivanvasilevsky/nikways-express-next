@@ -3,7 +3,7 @@ import Container from "../../main/Container"
 import Image from "next/image";
 import Link from "next/link";
 
-const Intro = ({categories}) => {
+const Intro = ({categories, title}) => {
 
 
   function SampleNextArrow(props) {
@@ -47,20 +47,28 @@ const Intro = ({categories}) => {
         <Image src='/photo/intro_bg.jpg' width={430} height={470} alt="bg" priority />
       </div>
 
-      <div className="intro__block">
-        <p className="intro__subtitle">
-          <span>Только посмотрите какие мы делаем</span>
-          <Image src="/icons/arrow_r.svg" width={80} height={10} alt="arrow"/>
-        </p>
-      </div>
 
-      <div className="intro__slider__outer">
-        <Slider className="intro__slider" {...settings}>
-          {categories.map(item => (
-            <Link className="intro__slider__item" key={item.id} href={item.slug}>{item.name}</Link>
-          ))}
-        </Slider>
-      </div>
+      {categories &&
+      <>
+        <div className="intro__block">
+          <p className="intro__subtitle">
+            <span>Только посмотрите какие мы делаем</span>
+            <Image src="/icons/arrow_r.svg" width={80} height={10} alt="arrow"/>
+          </p>
+        </div>
+        <div className="intro__slider__outer">
+          <Slider className="intro__slider" {...settings}>
+            {categories.map(item => (
+              <Link className="intro__slider__item" key={item.id} href={item.slug}>{item.name}</Link>
+            ))}
+          </Slider>
+        </div>
+      </>
+      }
+
+      {title &&
+        <h2 className="intro__title">{title}</h2>
+      }
 
       <Image className="intro__bottom" src='/ui/intro_bottom.svg' width={1920} height={96} alt="bottom" priority/>
     </Container>
