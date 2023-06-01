@@ -6,6 +6,9 @@ import ServiceQuestion from "@/component/service/ServiceQuestion"
 import { $host } from "@/http/http"
 import Image from "next/image"
 import Slider from "react-slick"
+import { useState } from "react"
+import { createPortal } from "react-dom"
+import ModalForm from "@/component/modals/ModalForm"
 
 export default function services({ serviceGroupe, services }) {
 
@@ -39,14 +42,29 @@ export default function services({ serviceGroupe, services }) {
     prevArrow: <SamplePrevArrow />,
   }
 
+  const [modalActive, setModalActive] = useState(false)
+  const [modalInfo, setModalInfo] = useState()
+
+  const modalOn = (info) => {
+    setModalInfo(info)
+    setModalActive(true)
+  }
+
+  const modalOff = () => {
+    setModalActive(false)
+    setModalInfo()
+  }
+
   return (
     <>
+      {modalActive && createPortal(<ModalForm info={modalInfo} modalOff={modalOff} />, document.querySelector('#modal'))}
+
       <Intro/>
 
       <section className="service__stage">
         <div className="container">
           {serviceGroupe.map((item, i) => (
-            <ServiceGroup info={item} number={i}/>
+            <ServiceGroup modalOn={modalOn} info={item} number={i}/>
           ))}
         </div>
         <Image className="service__wave" src="/ui/service_wave.svg" width={1920} height={200} alt="wave"/>
@@ -57,7 +75,7 @@ export default function services({ serviceGroupe, services }) {
 
         <Slider className="service__slide" {...settings}>
           {services.filter(item => item.type == 2).map(item => (
-            <ServiceSlide info={item}/>
+            <ServiceSlide modalOn={modalOn} info={item}/>
           ))}
         </Slider>
       </section>
@@ -66,7 +84,7 @@ export default function services({ serviceGroupe, services }) {
         <h4 className="project__main__title">Собери свою услугу</h4>
         <div className="service__question__block">
           {services.filter(item => item.type == 3).map(item => (
-            <ServiceQuestion info={item}/>
+            <ServiceQuestion modalOn={modalOn} info={item}/>
           ))}
         </div>
       </Container>

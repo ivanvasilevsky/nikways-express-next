@@ -1,7 +1,9 @@
 import config from "@/config"
 import Image from "next/image"
 
-export default function ServiceGroup({info, number}) {
+export default function ServiceGroup({ info, number, modalOn }) {
+
+
   return (
     <div className="service__stage__item">
       <span className="service__stage__number">0{number + 1}</span>
@@ -11,7 +13,7 @@ export default function ServiceGroup({info, number}) {
 
         <div className="service__stage__block">
           {info.services_group_items.map(item => (
-            <button className="btn service__stage__service">
+            <button onClick={() => modalOn({ name: item.name, desc: info.title, image: info.image })} className="btn service__stage__service">
               <span>{item.name}</span>
               <Image src="/icons/service_arrow.svg" width={60} height={10} alt="arrow" />
             </button>
