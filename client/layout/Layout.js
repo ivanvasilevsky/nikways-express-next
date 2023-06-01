@@ -32,8 +32,8 @@ export default function Layout({ children }) {
       {transitionActive &&
         <motion.div
           animate={{ top: 0 }}
-          exit={{ opacity: 0, transition: { delay: .9 }}}
-          transition={{ duration: 1 }}
+          exit={{ opacity: 0, transition: { duration: 1.2, delay: .7 }}}
+          transition={{ duration: .6 }}
           className='transition'
         >
           <div className="transition__inner">
@@ -51,7 +51,7 @@ export default function Layout({ children }) {
       <div className='page'>
 
         <AnimatePresence mode="wait">
-          <motion.div key={pageKey} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: .1, delay: .30  }}>
+          <motion.div key={pageKey} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: .5, delay: .15  }}>
             <Menu/>
             <Header/>
             {children}
