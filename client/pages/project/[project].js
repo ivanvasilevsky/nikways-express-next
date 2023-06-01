@@ -2,20 +2,19 @@ import PortfolioItem from "@/component/index/portfolio/PortfolioItem"
 import config from "@/config"
 import { $host } from "@/http/http"
 import Image from "next/image"
+import Link from "next/link"
 import { useState } from "react"
 
 export default function Project({ project, categories }) {
 
   const [portfolio, setPortfolio] = useState([])
+  const [categorySelect, setCategorySelect] = useState(categories[0])
 
   const getPortfolio = async (slug) => {
     const response = await $host.get(`/category/${slug}?limit=6`)
-
-
+    setCategorySelect(response.data.info)
     setPortfolio(response.data.portfolios.portfolios)
   }
-
-  console.log(portfolio);
 
   useState(() => {
     getPortfolio(categories[0].slug)
@@ -110,62 +109,72 @@ export default function Project({ project, categories }) {
         </div>
       </section>
 
-        <section className="project__present">
-          <div className="container">
-            <p className="project__main__title">Презентация / Фото с офиса?</p>
-            <div className="project__present__block">
-              {project.portfolio_galleries.filter(item => item.block == 1).map(item => (
-                <div key={item.id} className="project__present__item">
-                  {item.type == 1 ?
-                    <Image src={config.IMAGE_URL + `/portfolio/${project.id}/` + item.source} width={370} height={300} alt={item.id}/>
+
+      {project.portfolio_galleries.filter(item => item.block == 1).length > 0 &&
+      <section className="project__present">
+        <div className="container">
+          <p className="project__main__title">Презентация / Фото с офиса?</p>
+          <div className="project__present__block">
+            {project.portfolio_galleries.filter(item => item.block == 1).map(item => (
+              <div key={item.id} className="project__present__item">
+                {item.type == 1 ?
+                  <Image src={config.IMAGE_URL + `/portfolio/${project.id}/` + item.source} width={370} height={300} alt={item.id}/>
+                :
+                  <iframe width="100%" height="100%" src={`https://www.youtube.com/embed/${item.source}`} title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;full-screen;" allowFullScreen></iframe>
+                }
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      }
+
+
+      {project.portfolio_galleries.filter(item => item.block == 1).length > 0 &&
+      <section className="project__info">
+        <Image className="project__info__wave" src="/ui/info_top.svg" width={1920} height={90} alt="wave" />
+        <Image className="project__info__wave" src="/ui/info_bot.svg" width={1920} height={90} alt="wave" />
+        <p className="project__info__title">Разработка сценария и раскадровка</p>
+
+        <div className="container">
+          <div className="project__dev__block">
+            {project.portfolio_galleries.filter(item => item.block == 2).map(item => (
+              <div key={item.id} className="project__dev__item">
+                {item.type == 1 ?
+                  <Image src={config.IMAGE_URL + `/portfolio/${project.id}/` + item.source} width={370} height={300} alt={item.id} />
                   :
-                    <iframe width="100%" height="100%" src={`https://www.youtube.com/embed/${item.source}`} title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;full-screen;" allowFullScreen></iframe>
-                  }
-                </div>
-              ))}
-            </div>
+                  <iframe width="100%" height="100%" src={`https://www.youtube.com/embed/${item.source}`} title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;full-screen;" allowFullScreen></iframe>
+                }
+              </div>
+            ))}
+
           </div>
-        </section>
+        </div>
+      </section>
+      }
 
+      <section className="project__portfolio">
+        <div className="container">
+          <p className="project__portfolio__title">Другие наши проекты</p>
 
-        <section className="project__info">
-          <Image className="project__info__wave" src="/ui/info_top.svg" width={1920} height={90} alt="wave" />
-          <Image className="project__info__wave" src="/ui/info_bot.svg" width={1920} height={90} alt="wave" />
-          <p className="project__info__title">Разработка сценария и раскадровка</p>
-
-          <div className="container">
-            <div className="project__dev__block">
-              {project.portfolio_galleries.filter(item => item.block == 2).map(item => (
-                <div key={item.id} className="project__dev__item">
-                  {item.type == 1 ?
-                    <Image src={config.IMAGE_URL + `/portfolio/${project.id}/` + item.source} width={370} height={300} alt={item.id} />
-                    :
-                    <iframe width="100%" height="100%" src={`https://www.youtube.com/embed/${item.source}`} title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;full-screen;" allowFullScreen></iframe>
-                  }
-                </div>
-              ))}
-
-            </div>
+          <div className="project__portfolio__head">
+            {categories.map(item => (
+              <button key={item.id} onClick={() => getPortfolio(item.slug)} className={`btn project__portfolio__item ${categorySelect.id == item.id && 'active'}`}>{item.name}</button>
+            ))}
           </div>
-        </section>
 
-        <section className="project__portfolio">
-          <div className="container">
-            <p className="project__portfolio__title">Другие наши проекты</p>
-
-            <div className="project__portfolio__head">
-              {categories.map(item => (
-                <button key={item.id} onClick={() => getPortfolio(item.slug)} className="project__portfolio__item">{item.name}</button>
-              ))}
-            </div>
-
-            <div className="project__portfolio__grid">
-              {portfolio.map(item => (
-                <PortfolioItem key={item.id} info={item}/>
-              ))}
-            </div>
+          <div className="project__portfolio__grid">
+            {portfolio.map(item => (
+              <PortfolioItem key={item.id} info={item}/>
+            ))}
           </div>
-        </section>
+
+          <Link scroll={true} href={`/portfolio/${categorySelect.slug}/`} className="btn__more project__more__btn">
+            <span>Смотреть все</span>
+            <Image src="/icons/arrow_more_r.svg" width={6} height={12} alt="arrow" />
+          </Link>
+        </div>
+      </section>
     </div>
     </>
   )

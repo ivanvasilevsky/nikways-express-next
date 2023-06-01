@@ -1,4 +1,3 @@
-import { where } from "sequelize"
 import models from "../models/models.js"
 import fileService from "../services/fileService.js"
 import messageService from "../services/messageService.js"

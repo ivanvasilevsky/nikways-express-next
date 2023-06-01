@@ -94,6 +94,17 @@ const Services = sequelize.define('services', {
   type: { type: DataTypes.INTEGER } // 1 - на главной, 2 - в слайдер, 3 - в табы
 })
 
+const Services_groupe = sequelize.define('services_groups', {
+  title: { type: DataTypes.STRING, unique: true },
+  subtitle: { type: DataTypes.STRING },
+  image: { type: DataTypes.STRING}
+})
+
+const Services_groupe_item = sequelize.define('services_group_items', {
+  name: { type: DataTypes.STRING, unique: true },
+  text: { type: DataTypes.TEXT }
+})
+
 const Partners = sequelize.define('partners', {
   name: { type: DataTypes.STRING },
   logo: { type: DataTypes.STRING },
@@ -111,6 +122,7 @@ Portfolio.belongsTo(Categories)
 
 Portfolio.hasMany(Portfolio_gallery)
 
+Services_groupe.hasMany(Services_groupe_item)
 
 export default {
   Users,
@@ -124,5 +136,7 @@ export default {
   Portfolio,
   Portfolio_gallery,
   Services,
+  Services_groupe,
+  Services_groupe_item,
   Partners
 }

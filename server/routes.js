@@ -5,6 +5,7 @@ import contactRouter from "./routes/contactRouter.js"
 import mailRouter from "./routes/mailRouter.js"
 import partnerRouter from "./routes/partnerRouter.js"
 import portfolioRouter from "./routes/portfolioRouter.js"
+import servicesGroupeRouter from "./routes/servicesGroupeRouter.js"
 import servicesRouter from "./routes/servicesRouter.js"
 
 export default [
@@ -14,6 +15,7 @@ export default [
   categoryRouter,
   portfolioRouter,
   servicesRouter,
+  servicesGroupeRouter,
   partnerRouter,
   mailRouter
 ]
