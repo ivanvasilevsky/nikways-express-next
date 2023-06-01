@@ -1,0 +1,478 @@
+.service__stage
+  display: flex
+  flex-direction: column
+  position: relative
+  z-index: 10
+  background: $black
+  color: $white
+  margin-top: -300px
+  padding-top: 400px
+  margin-bottom: 12vw
+  font-family: 'Mont'
+
+  @media(max-width: 998px)
+    padding-top: 350px
+    margin-bottom: 6vw
+
+  @media(max-width: 500px)
+    padding-top: 320px
+
+  @media(max-width: 380px)
+    padding-top: 280px
+
+.service__wave
+  position: absolute
+  top: calc( 100% - 1px )
+  width: 100%
+  transform-origin: top center
+  scale: 1.02
+
+.service__stage__item
+  display: flex
+  justify-content: space-between
+  padding-left: 90px
+  position: relative
+  gap: 30px
+  margin-bottom: 200px
+
+  @media(max-width: 1600px)
+    margin-bottom: 140px
+    justify-content: space-around
+
+  @media(max-width: 998px)
+    justify-content: space-between
+    padding-left: 0px
+    margin-bottom: 80px
+
+  @media(max-width: 730px)
+    margin-bottom: 100px
+    padding-left: 30px
+    width: max-content
+    margin: 0 auto 100px
+
+  @media(max-width: 550px)
+    padding: 0
+    width: 100%
+    margin-bottom: 70px
+
+  @media(max-width: 380px)
+    margin-bottom: 50px
+
+
+  &:last-child
+    @media(min-width: 550px)
+      margin-bottom: 0
+
+.service__stage__number
+  position: absolute
+  top: 30px
+  left: 0px
+  font-size: 240px
+  font-weight: 700
+  opacity: 0.1
+  line-height: .7
+
+  @media(max-width: 1600px)
+    font-size: 200px
+
+  @media(max-width: 998px)
+    top: -10px
+    left: -30px
+
+  @media(max-width: 730px)
+    left: -10px
+
+  @media(max-width: 550px)
+    left: inherit
+    right: 0
+
+  @media(max-width: 350px)
+    font-size: 130px
+    top: 10px
+
+.service__stage__info
+  padding-top: 100px
+  max-width: 620px
+  width: 100%
+
+  @media(max-width: 1600px)
+    padding-top: 90px
+    max-width: 400px
+
+  @media(max-width: 998px)
+    padding-top: 40px
+
+.service__stage__title
+  font-size: 28px
+  text-transform: uppercase
+  color: $cyan
+  padding-left: 120px
+  position: relative
+  margin-bottom: 30px
+
+  @media(max-width: 1600px)
+    margin-bottom: 20px
+
+  @media(max-width: 998px)
+    padding-left: 80px
+    font-size: 24px
+
+  @media(max-width: 550px)
+    padding-left: 0
+    width: max-content
+
+  @media(max-width: 350px)
+    font-size: 20px
+
+  &::after
+    content: ''
+    position: absolute
+    width: 100px
+    height: 1px
+    background: $cyan
+    left: 0
+    top: 48%
+
+    @media(max-width: 998px)
+      width: 30px
+      left: 30px
+
+    @media(max-width: 550px)
+      left: calc( 100% + 20px )
+
+
+.service__stage__text
+  font-family: 'Pro'
+  font-size: 48px
+
+  @media(max-width: 1600px)
+    font-size: 36px
+
+  @media(max-width: 998px)
+    font-size: 28px
+
+  @media(max-width: 350px)
+    font-size: 22px
+
+.service__stage__block
+  margin-top: 50px
+  gap: 30px
+  display: flex
+  flex-direction: column
+
+  @media(max-width: 1600px)
+    margin-top: 30px
+
+.service__stage__service
+  display: flex
+  align-items: center
+  padding: 30px
+  justify-content: space-between
+  border-radius: 10px
+  border: 1px solid $white
+  font-size: 28px
+  color: $white
+  transition: .2s
+
+  @media(max-width: 1600px)
+    padding: 20px
+    font-size: 22px
+
+  @media(max-width: 998px)
+    padding: 15px
+    font-size: 20px
+
+  @media(max-width: 350px)
+    font-size: 16px
+
+  & img
+    margin-top: 2px
+    filter: invert(0)
+    transition: .2s
+
+  &:hover
+    background: $white
+    color: $black
+
+    & img
+      filter: invert(1)
+
+.service__stage__photo
+  object-fit: cover
+  border-radius: 14px
+  height: 100%
+  width: 100%
+  max-height: 750px
+
+  @media(max-width: 1600px)
+    max-height: 500px
+    max-width: 400px
+
+  @media(max-width: 998px)
+    max-width: 300px
+    max-height: 370px
+
+  @media(max-width: 730px)
+    display: none
+
+.service__slider
+  margin: 80px 0 120px
+  font-family: 'Mont'
+  position: relative
+
+  & .slick-arrow
+    position: absolute
+    z-index: 100
+    bottom: 0
+    width: 55px
+    height: 55px
+    border-radius: 50%
+    border: 1px solid $black
+    @include centerIn
+    transition: .2s
+
+    @media(max-width: 1320px)
+      bottom: -70px
+
+    &:hover
+      opacity: 0.6
+      cursor: pointer
+
+    &.slick-prev
+      rotate: 180deg
+      left: calc((100vw - 1155px) / 2 )
+
+      @media (max-width: 1170px)
+        left: calc((100vw - 955px) / 2 )
+
+      @media (max-width: 998px)
+        left: calc((100vw - 735px) / 2 )
+
+      @media(max-width: 800px)
+        left: 100px
+
+      @media(max-width: 600px)
+        left: 20px
+
+    &.slick-next
+      right: calc((100vw - 1155px) / 2 )
+
+      @media (max-width: 1170px)
+        right: calc((100vw - 955px) / 2 )
+
+      @media (max-width: 998px)
+        right: calc((100vw - 735px) / 2 )
+
+      @media(max-width: 800px)
+        right: 100px
+
+      @media(max-width: 600px)
+        right: 20px
+
+
+
+.service__slide
+  width: 100%
+
+  .slick-list
+    padding: 0 !important
+
+
+.service__slide__item
+  width: 100%
+
+.service__slide__inner
+  margin: 0 auto
+  border-radius: 10px
+  background: $cyan_w
+  max-width: 970px
+  width: 100%
+  display: flex !important
+  align-items: center
+  gap: 20px
+  padding: 10px 0 10px 40px
+
+  @media(max-width: 1320px)
+    padding: 10px 0 10px 40px
+    max-width: 700px
+
+  @media(max-width: 940px)
+    padding: 20px 0 20px 20px
+    max-width: 80vw
+
+  @media(max-width: 500px)
+    padding: 20px
+    max-width: 92vw
+
+.service__slide__info
+  @media(max-width: 940px)
+    max-width: 60%
+
+  @media(max-width: 650px)
+    max-width: 100%
+
+.service__slide__title
+  font-size: 36px
+  text-transform: uppercase
+  font-weight: 700
+  margin-bottom: 50px
+
+  @media(max-width: 1600px)
+    margin-bottom: 30px
+    font-size: 30px
+
+  @media(max-width: 1320px)
+    font-size: 24px
+    margin-bottom: 20px
+
+.service__slide__text
+  font-size: 22px
+  font-weight: 400
+  line-height: 1.5
+
+  @media(max-width: 1320px)
+    font-size: 20px
+    line-height: 1.3
+
+  @media(max-width: 940px)
+    font-size: 18px
+
+.service__slide__bottom
+  display: flex
+  gap: 15px
+  margin-top: 80px
+
+  @media(max-width: 1600px)
+    margin-top: 50px
+
+  @media(max-width: 1320px)
+    margin-top: 30px
+
+  @media(max-width: 940px)
+    flex-direction: column
+
+.service__slide__btn
+  margin: 0
+  background: $white
+
+  @media(max-width: 940px)
+    width: 100%
+    max-width: 210px
+
+  @media(max-width: 500px)
+    margin: 0 auto
+
+.service__slide__photo
+  margin-right: -100px
+  max-width: 500px
+  max-height: 500px
+  width: 100%
+  height: 100%
+  object-fit: contain
+
+  @media(max-width: 1600px)
+    max-width: 400px
+    max-height: 400px
+
+  @media(max-width: 1320px)
+    max-width: 250px
+    max-height: 250px
+
+  @media(max-width: 940px)
+    margin-right: -20px
+
+  @media(max-width: 650px)
+    margin-right: -150px
+
+  @media(max-width: 500px)
+    display: none
+
+
+.service__question
+  font-family: 'Mont'
+
+
+.service__question__block
+  display: flex
+  flex-direction: column
+
+.service__question__item
+  display: flex
+  flex-direction: column
+  border: 1px solid $black
+  border-radius: 10px
+  overflow: hidden
+  transition: .6s
+  margin-bottom: 30px
+  max-height: 75px
+
+  @media(max-width: 380px)
+    max-height: 65px
+
+.service__question__head
+  display: flex
+  justify-content: space-between
+  align-items: center
+  font-size: 28px
+  font-weight: 700
+  padding-bottom: 18px
+  border-bottom: 1px solid $gray
+  padding: 20px 25px
+  transition: .2s
+
+  @media(max-width: 1600px)
+    font-size: 24px
+
+  @media(max-width: 998px)
+    font-size: 18px
+    line-height: 1.1
+
+  @media(max-width: 380px)
+    font-size: 16px
+    padding: 15px
+
+
+  &:hover
+    background: $gray_w
+    cursor: pointer
+
+.service__question__plus
+  fill: $black
+  width: 35px
+  height: 35px
+  min-width: 35px
+  min-height: 35px
+  border-radius: 50%
+  border: 1px solid $black
+  padding: 8px
+  transition: .2s
+
+  @media(max-width: 380px)
+    width: 25px
+    height: 25px
+    min-width: 25px
+    min-height: 25px
+    padding: 5px
+
+.service__question__bottom
+  padding: 25px
+
+  @media(max-width: 380px)
+    padding: 15px
+
+.service__question__text
+  font-size: 22px
+  font-weight: 400
+  line-height: 1.3
+  margin-bottom: 30px
+
+  @media(max-width: 998px)
+    font-size: 18px
+
+.service__question__item.active
+  max-height: 800px
+
+  & .service__question__plus
+    rotate: 45deg
+    border-color: $red
+    fill: $red
