@@ -19,6 +19,8 @@
   height: 100vh
   z-index: 6000
   background: $black_op
+  opacity: 0
+  transition: .4s
 
 .modal__block
   font-family: 'Mont'
@@ -30,12 +32,27 @@
   background: $white
   border-radius: 10px
   padding: 80px 50px
+  scale: .4
+  opacity: 0
+  transition: .4s
 
   @media(max-width: 998px)
     padding: 45px 30px 30px
 
   @media(max-width: 380px)
     padding: 25px 20px 20px
+
+.modal.active
+  & .modal__back
+    opacity: 1
+
+  & .modal__block
+    scale: 1
+    opacity: 1
+
+  & .modal__neuro__block
+    scale: 1
+    opacity: 1
 
 .modal__cross
   position: absolute

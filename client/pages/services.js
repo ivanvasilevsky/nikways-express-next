@@ -64,7 +64,7 @@ export default function services({ serviceGroupe, services }) {
       <section className="service__stage">
         <div className="container">
           {serviceGroupe.map((item, i) => (
-            <ServiceGroup modalOn={modalOn} info={item} number={i}/>
+            <ServiceGroup key={item.id} modalOn={modalOn} info={item} number={i}/>
           ))}
         </div>
         <Image className="service__wave" src="/ui/service_wave.svg" width={1920} height={200} alt="wave"/>
@@ -75,7 +75,7 @@ export default function services({ serviceGroupe, services }) {
 
         <Slider className="service__slide" {...settings}>
           {services.filter(item => item.type == 2).map(item => (
-            <ServiceSlide modalOn={modalOn} info={item}/>
+            <ServiceSlide key={item.id} modalOn={modalOn} info={item}/>
           ))}
         </Slider>
       </section>
@@ -84,7 +84,7 @@ export default function services({ serviceGroupe, services }) {
         <h4 className="project__main__title">Собери свою услугу</h4>
         <div className="service__question__block">
           {services.filter(item => item.type == 3).map(item => (
-            <ServiceQuestion modalOn={modalOn} info={item}/>
+            <ServiceQuestion key={item.id} modalOn={modalOn} info={item}/>
           ))}
         </div>
       </Container>

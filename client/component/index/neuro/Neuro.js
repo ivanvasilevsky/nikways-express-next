@@ -1,5 +1,6 @@
 import ModalForm from "@/component/modals/ModalForm"
 import ModalNeuro from "@/component/modals/ModalNeuro"
+import { AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import { useState } from "react"
 import { createPortal } from "react-dom"
@@ -41,6 +42,7 @@ export default function Neuro() {
 
     {modalNeuroActive && createPortal(<ModalNeuro modalOff={modalNeuroOff} />, document.querySelector('#modal'))}
     {modalFormActive && createPortal(<ModalForm info={info} modalOff={modalFormOff}/>, document.querySelector('#modal'))}
+
 
     <div className="neuro">
       <Image className="neuro__wave" src="/ui/neuro_top.svg" width={1920} height={200} alt="wave"/>

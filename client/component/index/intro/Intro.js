@@ -59,7 +59,7 @@ const Intro = ({categories, title}) => {
         <div className="intro__slider__outer">
           <Slider className="intro__slider" {...settings}>
             {categories.map(item => (
-              <Link className="intro__slider__item" key={item.id} href={item.slug}>{item.name}</Link>
+              <Link className="intro__slider__item" key={item.id} href={'/portfolio/' + item.slug}>{item.name}</Link>
             ))}
           </Slider>
         </div>

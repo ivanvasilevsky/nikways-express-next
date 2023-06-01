@@ -15,6 +15,10 @@ export default function Footer({info}) {
     link_youtube: ''
   })
 
+  const scrollTop = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  }
+
   useState(() => {
     setInfoMass(info)
   }, [])
@@ -29,7 +33,7 @@ export default function Footer({info}) {
             <Image className="footer__biba" src="/icons/footer_biba.jpg" width={400} height={380} alt="biba"/>
 
             <div className="footer__block">
-              <div className="footer__arrow">
+              <div onClick={scrollTop} className="footer__arrow">
                 <Image src="/icons/arrow_slide_r.svg" width={55} height={55} alt="arrow"/>
               </div>
 
