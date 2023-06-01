@@ -1,0 +1,29 @@
+.transition
+  pointer-events: none
+  position: fixed
+  top: 150%
+  left: 0
+  scale: 1.2
+  width: 100vw
+  height: 100vh
+  background: $black
+  z-index: 20000
+  opacity: 1
+
+
+
+.transition__inner
+  width: 100%
+  height: 100%
+  position: relative
+
+.wave__trans__svg
+  position: absolute
+  bottom: 100%
+  width: 100%
+  rotate: 180deg
+
+  & svg
+    transition: .7s cubic-bezier(.29,.22,.47,.98)
+
+
