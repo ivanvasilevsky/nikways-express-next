@@ -1,0 +1,41 @@
+.btn
+  appearance: none
+  padding: 0
+  margin: 0
+  border: none
+  background: none
+  display: flex
+  @include centerIn
+
+.btn-def
+  padding: 10px 15px
+  border-radius: 5px
+  background: $yel
+  font-size: 18px
+  color: $white
+  font-weight: 500
+  transition: .2s
+
+  &:hover
+    opacity: 0.6
+    transition: .2s
+
+.modal__error__text
+  color: red
+  font-size: 16px
+  margin-top: 20px
+
+.main__input
+  appearance: none
+  width: 100%
+  border-radius: 5px
+  border: solid 1px $yel
+  background: $black
+  padding: 14px 15px
+  color: $white
+  font-size: 18px
+  margin-bottom: 25px
+  outline: none
+
+  &::placeholder
+    font-size: 18px

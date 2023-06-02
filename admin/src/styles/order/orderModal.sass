@@ -1,0 +1,40 @@
+.order__modal__inner
+  margin-top: 15px
+  display: grid
+  grid-template-columns: repeat(12, 1fr)
+  gap: 20px
+
+  @media (max-width: 700px)
+    gap: 10px
+
+.order__modal__block
+  grid-column: span 6
+  text-align: left
+  background: $black
+  padding: 10px 15px
+  border-radius: 8px
+
+  @media (max-width: 700px)
+    grid-column: span 12
+
+  & a
+    &:hover
+      opacity: 0.7
+
+.order__modal__subtitle
+  font-size: 22px
+  font-weight: 500
+
+  @media (max-width: 700px)
+    font-size: 18px
+
+
+.order__modal__text
+  display: block
+  font-size: 17px
+  margin-top: 5px
+  color: $white
+
+  @media (max-width: 700px)
+    font-size: 15px
+    margin-top: 2px

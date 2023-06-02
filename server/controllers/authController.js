@@ -1,4 +1,4 @@
-import jwt  from "jsonwebtoken"
+import jwt from "jsonwebtoken"
 import models from "../models/models.js"
 import messageService from "../services/messageService.js"
 import argon2 from "argon2"
@@ -11,7 +11,7 @@ const generateToken = (id, fio) => {
 
   const secretKey = new TextEncoder().encode(process.env.SECRET_KEY)
 
-  return jwt.sign(payload, secretKey, { expiresIn: '24h'})
+  return jwt.sign(payload, secretKey, { expiresIn: '24h' })
 }
 
 class authController {
@@ -20,7 +20,7 @@ class authController {
     try {
       const { login, password, fio } = req.body
 
-      const userCheck = await models.Users.findOne({ where: { login }})
+      const userCheck = await models.Users.findOne({ where: { login } })
       if (userCheck) {
         return res.json(messageService.send(0, 'Пользователь с таким логином существует!'))
       }
@@ -37,8 +37,6 @@ class authController {
   async login(req, res) {
     try {
       const { login, password } = req.body
-
-      const image = req.files.image
 
       const user = await models.Users.findOne({ where: { login } })
       if (!user) {

@@ -1,0 +1,54 @@
+.page
+  padding: 40px 0
+  max-width: 1400px
+  margin: 0 auto
+  display: grid
+  grid-template-columns: repeat(18, 1fr)
+  gap: 20px
+
+  @media (max-width: 1450px)
+    padding: 40px 20px
+
+  @media (max-width: 740px)
+    display: flex
+    flex-direction: column
+    padding: 10px 15px 30px
+    gap: 0
+
+.page__block
+  padding-bottom: 20px
+  height: 88vh
+  grid-column: span 15
+
+
+  @media (max-width: 1300px)
+    grid-column: span 14
+
+  @media (max-width: 1050px)
+    grid-column: span 13
+
+  @media (max-width: 840px)
+    grid-column: span 12
+
+  @media (max-width: 740px)
+    width: 100%
+
+  @media (max-height: 800px)
+    height: initial
+
+
+.page__title
+  height: 40px
+  text-align: center
+  font-size: 30px
+  font-weight: 400
+
+.page__outer
+  display: flex
+  flex-direction: column
+  height: 100%
+  padding: 0 20px
+  border-radius: 10px
+  margin-top: 20px
+  background: $blue
+  box-shadow: $shadow

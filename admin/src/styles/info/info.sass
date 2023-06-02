@@ -1,0 +1,33 @@
+.info__inner
+  padding: 20px 0
+  display: grid
+  grid-template-columns: repeat(12, 1fr)
+  gap: 50px
+
+  @media (max-width: 1000px)
+    gap: 20px
+
+.info__item
+  grid-column: span 4
+
+  @media (max-width: 1300px)
+    grid-column: span 6
+
+  @media (max-width: 600px)
+    grid-column: span 12
+
+  & p
+    font-size: 16px
+    margin-bottom: 10px
+
+  & input
+    width: 100%
+    border-radius: 5px
+    border: solid 1px $yel
+    background: $black
+    padding: 15px 15px
+    color: $white
+    font-size: 18px
+
+    &::placeholder
+      font-size: 18px

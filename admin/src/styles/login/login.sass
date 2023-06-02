@@ -1,0 +1,33 @@
+.login
+  grid-column: span 18
+  height: 100%
+  @include centerIn
+  padding-bottom: 200px
+
+.login__inner
+  display: flex
+  flex-direction: column
+
+.login__logo
+  max-width: 150px
+  margin: 0 auto 20px
+
+.login__block
+  display: flex
+  flex-direction: column
+  background: $blue
+  box-shadow: $shadow
+  border-radius: 10px
+  padding: 20px
+  position: relative
+
+.login__error
+  display: block
+  position: absolute
+  bottom: -50px
+  left: 50%
+  translate: -50% 0
+  white-space: nowrap
+
+.login__btn
+  margin-top: 20px

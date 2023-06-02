@@ -1,0 +1,76 @@
+.dashboard
+  grid-column: span 3
+
+  @media (max-width: 1300px)
+    grid-column: span 4
+
+  @media (max-width: 1050px)
+    grid-column: span 5
+
+  @media (max-width: 840px)
+    grid-column: span 6
+
+  @media (max-width: 740px)
+    width: 100%
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    align-items: center
+
+.dashboard__logo
+  margin: 0 auto
+  height: 40px
+
+  @media (max-width: 740px)
+    height: 30px
+
+.dashboard__menu
+  margin: 20px 0
+  background: $yel
+  border-radius: 10px
+  padding: 10px
+  display: flex
+  flex-direction: column
+  gap: 8px
+  box-shadow: $shadow
+
+  @media (max-width: 740px)
+    margin: 15px 0
+    width: 100%
+    flex-direction: row
+    flex-wrap: wrap
+    gap: 4px
+    order: 3
+
+.dashboard__item
+  color: $white
+  padding: 8px 10px
+  border-radius: 6px
+  transition: .15s
+
+  @media (max-width: 740px)
+    font-size: 16px
+    padding: 6px 8px
+
+  &:hover
+    cursor: pointer
+    background: $white_op
+
+  &.active
+    background: $white_op
+
+.dashboard__exit
+  background: $yel
+  border-radius: 10px
+  padding: 8px
+  text-align: center
+  box-shadow: $shadow
+  transition: .25s
+
+  @media (max-width: 740px)
+    padding: 6px 15px
+
+  &:hover
+    transition: .15s
+    cursor: pointer
+    opacity: 0.6

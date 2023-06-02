@@ -24,38 +24,38 @@ export default function Layout({ children }) {
 
   return (
     <>
-      <HeadBlock title={children.props.title}/>
+      <HeadBlock title={children.props.title} />
 
       <div id="modal"></div>
 
       <AnimatePresence mode="wait">
-      {transitionActive &&
-        <motion.div
-          animate={{ top: 0 }}
-          exit={{ opacity: 0, transition: { duration: 1.2, delay: .7 }}}
-          transition={{ duration: .6 }}
-          className='transition'
-        >
-          <div className="transition__inner">
-            {transitionActive &&
-              <WaveTransSvg />
-            }
-            {!transitionActive &&
-              <WaveTransSvg />
-            }
-          </div>
-        </motion.div>
-      }
+        {transitionActive &&
+          <motion.div
+            animate={{ top: 0 }}
+            exit={{ opacity: 0, transition: { duration: 1.2, delay: .7 } }}
+            transition={{ duration: .6 }}
+            className='transition'
+          >
+            <div className="transition__inner">
+              {transitionActive &&
+                <WaveTransSvg />
+              }
+              {!transitionActive &&
+                <WaveTransSvg />
+              }
+            </div>
+          </motion.div>
+        }
       </AnimatePresence>
 
       <div className='page'>
 
         <AnimatePresence mode="wait">
-          <motion.div key={pageKey} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: .5, delay: .15  }}>
-            <Menu/>
-            <Header/>
+          <motion.div key={pageKey} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: .5, delay: .15 }}>
+            <Menu />
+            <Header />
             {children}
-            <Footer info={children.props.contacts}/>
+            <Footer info={children.props.contacts} />
           </motion.div>
         </AnimatePresence>
       </div>

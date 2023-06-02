@@ -1,0 +1,377 @@
+.product__grid
+  grid-template-rows: initial
+
+.product__item
+  grid-column: span 3
+  display: flex
+  flex-direction: column
+
+  @media (max-width: 1300px)
+    grid-column: span 4
+
+  @media (max-width: 1080px)
+    grid-column: span 6
+
+  @media (max-width: 500px)
+    grid-column: span 12
+
+
+  & .category__item__head
+    margin-bottom: 15px
+
+
+.product__btn__block
+  display: flex
+
+  align-items: center
+  margin-left: auto
+  margin-bottom: auto
+
+.product__name
+  font-size: 18px
+  line-height: 1.2
+  font-weight: 400
+
+  @media (max-width: 800px)
+    font-size: 16px
+
+.product__preview
+  display: block
+  width: 100%
+  height: 100%
+  min-height: 100px
+  max-height: 210px
+  margin: auto auto 0
+  border-radius: 5px
+  overflow: hidden
+  transition: .2s
+
+
+  & img
+    width: 100%
+    height: 100%
+    object-fit: cover
+
+
+  &:hover
+    opacity: 0.6
+
+.product__modal__inner
+  max-width: 620px
+  max-height: 800px
+  overflow-y: scroll
+  @include hideScroll
+
+  @media (max-height: 880px)
+    max-height: 80vh
+
+.product__modal__form
+  display: grid
+  grid-template-columns: repeat(12, 1fr)
+  gap: 30px
+
+  @media (max-height: 1000px)
+    gap: 10px 20px
+
+.product__item__block
+  display: flex
+  height: 50px
+  margin-bottom: 20px
+
+
+  &:last-child
+    margin: 0
+
+.product__input__item
+  grid-column: span 6
+
+  & .main__input
+    margin: 0
+
+  &.item--full
+    grid-column: span 12
+
+  &.item-eight
+    grid-column: span 8
+
+  &.item-four
+    grid-column: span 4
+
+.product__item__check
+  display: flex
+  align-items: center
+  margin: 0 auto
+
+  & label
+    margin-right: 10px
+
+textarea.main__input
+  height: 200px
+  resize: none
+
+  @media (max-height: 1000px)
+    height: 170px
+
+  @media (max-height: 780px)
+    height: 110px
+
+.product__subtitle
+  margin-bottom: 6px
+
+
+.product__character
+  display: flex
+  flex-direction: column
+  background: $black
+  border-radius: 5px
+  margin-top: 5px
+  padding: 15px 10px 10px
+
+.character__btn
+  max-width: 150px
+  margin: 0 auto 5px
+  font-weight: 400
+
+.product__character__block
+  display: flex
+  flex-direction: column
+
+.product__character__item
+  background: $blue
+  padding: 5px 5px 5px 10px
+  border-radius: 5px
+  margin-top: 10px
+  display: flex
+  align-items: center
+  justify-content: space-between
+
+  & span:nth-child(2)
+    margin-left: auto
+    margin-right: 16px
+    text-align: right
+    padding-left: 10px
+    line-height: 1.2
+    font-size: 15px
+
+.product__character__item__line
+  height: 22px
+  width: 1px
+  min-width: 1px
+  margin-right: 10px
+  background: $yel
+
+.character__menu
+  overflow-y: scroll
+  max-height: 80vh
+  position: absolute
+  top: 50%
+  left: 50%
+  translate: -50% -50%
+  background: $black
+  padding: 5px
+  border-radius: 8px
+  text-align: left
+
+  @include hideScroll
+
+.character__menu__back
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background: #979797ad
+  border-radius: 10px
+
+.character__menu__item
+  min-width: 300px
+  line-height: 1.2
+  font-size: 20px
+  margin-bottom: -1px
+  padding: 12px 12px
+  border-radius: 5px
+  position: relative
+
+  &:last-child
+    &::after
+      display: none
+
+  &::after
+    @include pseudo(97%, 1px)
+    background: #d2d2d261
+    bottom: 0
+    left: 50%
+    translate: -50% 0
+
+  &:hover
+    cursor: pointer
+    background: $white_op
+
+.product__btn
+  margin: 30px auto 0
+  width: 100%
+  max-width: 180px
+
+.product__modal__tab
+  display: flex
+  width: 100%
+  gap: 10px
+  margin-bottom: 20px
+
+.product__modal__tab__item
+  width: 100%
+  font-weight: 300
+  background: $black
+
+  &.active
+    background: $yel
+
+
+.product__modif
+  display: flex
+  flex-direction: column
+  grid-column: span 12
+
+.product__modif__item
+  background: $black
+  width: 100%
+  border-radius: 5px
+  padding: 10px
+
+.product__modif__gallery
+  background: $blue
+  padding: 10px
+  border-radius: 5px
+  display: flex
+  @include centerIn
+
+  & input
+    width: 180px
+
+.product__modif__item__head
+  border-top: solid 1px $white_op
+  padding-top: 8px
+  margin-top: 10px
+  display: flex
+  align-items: center
+  opacity: 0.2
+  transition: .2s
+
+  &.active
+    opacity: 1
+
+.category__status__btn
+  background: $black
+  margin-right: 20px
+  &:nth-child(2)
+    margin-right: auto
+
+  &.active
+    background: $yel
+
+  @media(max-width: 550px)
+    margin-right: 15px
+    letter-spacing: -.8px
+
+  @media(max-width: 350px)
+    font-size: 15px
+    margin-right: 8px
+
+.product__modif__input
+  appearance: none
+  background: none
+  border: none
+  color: $white
+  font-size: 16px
+
+  &:first-child
+    margin-right: auto
+
+  &:nth-child(2)
+    width: 100px
+
+
+.product__modif__color
+  margin-right: 10px
+  width: 24px
+  height: 24px
+  border-radius: 50%
+  border: solid 2px $yel
+  transition: .2s
+
+.gallery__modal__inner
+  display: flex
+  flex-direction: column
+  gap: 10px
+  max-height: 75vh
+
+.gallery__modal__block
+  border-radius: 5px
+  overflow-y: scroll
+  display: flex
+  flex-direction: column
+  gap: 20px
+  max-width: 400px
+  max-height: 500px
+  @include hideScroll
+
+.product__option__gallery
+  display: grid
+  grid-template-columns: repeat(12, 1fr)
+  gap: 15px
+
+.gallery__modal__item
+  position: relative
+  display: flex
+  grid-column: span 4
+  border-radius: 5px
+  height: 120px
+  overflow: hidden
+  @include centerIn
+  transition: .2s
+
+  &:hover
+    cursor: pointer
+    opacity: 0.7
+
+    & .gallery__modal__photo__remove
+      opacity: 1
+
+.gallery__modal__add
+  background: $white_op
+  transition: .2s
+
+  &:hover
+    cursor: pointer
+    opacity: 0.6
+
+
+
+.gallery__modal__image
+  width: 100%
+  height: 100%
+  object-fit: cover
+
+.gallery__modal__photo__remove
+  width: 26px
+  position: absolute
+  opacity: 0
+  transition: .2s
+
+.gallery__modal__upload
+  display: none
+
+.gallery__add__btn
+  max-width: 180px
+  width: 100%
+  margin: 10px auto 0
+
+.gallery__btn
+  margin-top: 20px
+
+.gallery__create__block
+  margin-bottom: 10px
+
+.btn__category__delete
+  @media (max-height: 1000px)
+    margin: 10px auto

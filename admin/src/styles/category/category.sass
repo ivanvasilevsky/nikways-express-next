@@ -1,0 +1,154 @@
+.category
+  height:  calc( 100% - 20px )
+
+.category__inner
+  @include hideScroll
+  overflow-y: scroll
+  height: calc(100% - 60px)
+  padding-bottom: 20px
+
+
+.category__head
+  display: flex
+  justify-content: flex-end
+  padding: 20px 0
+
+.category__grid
+  display: grid
+  grid-template-columns: repeat(12, 1fr)
+  gap: 20px
+  // grid-template-rows: masonry
+
+
+.category__item
+  height: max-content
+  grid-column: span 4
+  border-radius: 8px
+  background: $black
+  padding: 18px 20px
+
+  @media (max-width: 1300px)
+    grid-column: span 6
+
+  @media (max-width: 1000px)
+    grid-column: span 12
+
+.category__item__head
+  display: flex
+  align-items: center
+  justify-content: flex-end
+  gap: 5px
+
+  @media (max-width: 1300px)
+    gap: 3px
+
+.category__name
+  width: 100%
+  color: $white
+  border: none
+  background: none
+  margin-right: auto
+  font-size: 20px
+  font-weight: 500
+
+  @media (max-width: 1300px)
+    font-size: 16px
+
+.category__item__edit
+  @include centerIn
+  width: 30px
+  height: 30px
+  min-width: 30px
+  min-height: 30px
+  padding: 2px
+  border-radius: 5px
+
+  &:hover
+    background: $white_op
+
+.category__subitem
+  display: flex
+  gap: 5px
+  align-items: center
+  background: $blue
+  padding: 10px 15px
+  border-radius: 5px
+  margin-top: 15px
+
+.category__modal__inner
+  display: flex
+  flex-direction: column
+  width: 100%
+  max-width: 340px
+
+.category__modal__form
+  display: flex
+  flex-direction: column
+  min-width: 340px
+
+  & input.input__class, select.input__class, textarea.input__class
+    resize: none
+    width: 100%
+    padding: 10px 10px
+    border-radius: 5px
+    appearance: none
+    border: none
+    font-size: 18px
+    margin-bottom: 20px
+    background: none
+    color: $white
+    border: 1px solid $yel
+    outline: none
+    text-align: center
+
+  & select.input__class
+    margin: 0 auto 20px
+
+  & .input__file
+    margin: 0 auto 20px
+    width: 170px
+
+.category__modal__preview
+  height: 150px
+  border-radius: 5px
+  object-fit: cover
+  margin: 20px 0
+
+.category__modal__check
+  display: flex
+  align-items: center
+  margin: 0 auto 20px
+
+  & input
+    margin: 0 10px 0 0
+
+
+.btn__category__modal
+  max-width: 180px
+  width: 100%
+  margin: 10px auto 0
+
+
+.btn__category__delete
+  margin-bottom: 20px
+  background: red
+
+.brand__modal__preview
+  object-fit: contain
+  max-width: 150px
+  background:$white
+  margin: 0 auto 20px
+
+.subscribe__grid
+  padding: 20px 0
+
+  @media (max-width: 1000px)
+    padding-bottom: 0
+
+.subscribe__item
+
+  @media (max-width: 1000px)
+    padding: 14px 10px
+
+  & .category__name
+    margin: 0 auto
