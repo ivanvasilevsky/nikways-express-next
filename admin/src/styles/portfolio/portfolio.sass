@@ -1,0 +1,123 @@
+.portfolio__grid
+  grid-template-rows: initial
+
+.portfolio__item
+  grid-column: span 3
+  display: flex
+  flex-direction: column
+
+  @media (max-width: 1300px)
+    grid-column: span 4
+
+  @media (max-width: 1080px)
+    grid-column: span 6
+
+  @media (max-width: 500px)
+    grid-column: span 12
+
+  & .category__item__head
+    margin-bottom: 15px
+
+.portfolio__btn__block
+  display: flex
+
+  align-items: center
+  margin-left: auto
+  margin-bottom: auto
+
+.portfolio__name
+  font-size: 18px
+  line-height: 1.2
+  font-weight: 400
+
+  @media (max-width: 800px)
+    font-size: 16px
+
+.portfolio__preview
+  display: block
+  width: 100%
+  height: 100%
+  min-height: 100px
+  max-height: 210px
+  margin: auto auto 0
+  border-radius: 5px
+  overflow: hidden
+  transition: .2s
+
+  & img
+    width: 100%
+    height: 100%
+    object-fit: cover
+
+  &:hover
+    opacity: 0.6
+
+.portfolio__modal__inner
+  max-height: 85vh
+  overflow-y: scroll
+  @include hideScroll
+
+.portfolio__modal__head
+  display: flex
+  gap: 20px
+  justify-content: center
+  margin-bottom: 15px
+
+  @media(max-width: 1600px)
+    margin-bottom: 8px
+
+.portfolio__modal__tab
+  background: $black
+
+  &.active
+    background: $main
+
+.portfolio__modal__form
+  display: flex
+  gap: 24px
+  flex-wrap: wrap
+  max-width: 600px
+
+  @media(max-width: 1600px)
+    gap: 16px
+
+.portfolio__modal__item
+  width: 100%
+  &.double
+    width: calc( 50% - 12px )
+
+    @media(max-width: 1600px)
+      width: calc( 50% - 8px )
+
+    @media(max-width: 600px)
+      width: 100%
+
+.main__input__label
+  text-align: left
+
+  margin-bottom: 5px
+
+.portfolio__modal__btn
+  margin: 30px auto 0
+  width: 100%
+  max-width: 200px
+
+.portfolio__modal__video
+  margin-top: 16px
+  border-radius: 8px
+  background: $black
+  overflow: hidden
+  position: relative
+  width: 100%
+  padding-bottom: 56.25%
+
+  @media(max-width: 998px)
+    margin-bottom: 30px
+
+.portfolio__modal__video iframe
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  border: 0

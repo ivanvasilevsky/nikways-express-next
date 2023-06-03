@@ -175,7 +175,7 @@ class portfolioController {
         fileService.deleteFile('portfolio', id, portCheck.preview)
         const previewImage = fileService.saveFile('portfolio', id, preview)
 
-        await models.Portfolio.update({ preview: previewImage }, { where: { id }})
+        await models.Portfolio.update({ preview: previewImage }, { where: { id } })
       }
 
       if (req.files.idea_photo) {
@@ -227,7 +227,7 @@ class portfolioController {
 
       fileService.deleteFolder('portfolio', id)
 
-      await models.Portfolio.destroy({ where: { id }})
+      await models.Portfolio.destroy({ where: { id } })
       res.json(messageService.send(1, 'Проект удален!'))
     } catch (e) {
       console.log(e)
@@ -237,12 +237,17 @@ class portfolioController {
 
   async getAll(req, res) {
     try {
+      const { limit } = req.query
       const portfolio = await models.Portfolio.findAll(
         {
           attributes: ['id', 'slug', 'name', 'preview', 'tags']
         }
       )
-      res.json(portfolio.reverse().slice(0, 12))
+      if (limit) {
+        return res.json(portfolio.reverse().slice(0, limit))
+      }
+
+      res.json(portfolio.reverse())
     } catch (e) {
       console.log(e)
     }
