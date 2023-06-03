@@ -3,7 +3,7 @@ import Modal from "../main/Modal"
 import $host from "../../src/http/http"
 import InputMask from "react-input-mask"
 
-export default function ProductModal({ title, modalOff }) {
+export default function PortfolioModal({ title, modalOff }) {
 
 
   return (

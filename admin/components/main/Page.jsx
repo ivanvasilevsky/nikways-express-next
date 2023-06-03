@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Dashboard from "./Dashboard"
 import { Route, Routes } from "react-router-dom"
-import Products from "../../src/pages/Products"
+import Portfolio from "../../src/pages/Portfolio"
 
 export default function Page({ checkLogin }) {
 
@@ -16,7 +16,7 @@ export default function Page({ checkLogin }) {
         <div className="page__outer">
 
           <Routes>
-            <Route path="/admin/" element={<Products />} />
+            <Route path="/admin/" element={<Portfolio />} />
           </Routes>
 
         </div>

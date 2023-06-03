@@ -8,7 +8,7 @@ export default function Dashboard({ titleOn, checkLogin }) {
 
   const menuMass = [
     {
-      name: 'Заказы',
+      name: 'Портфолио',
       seo: '/admin/'
     },
 

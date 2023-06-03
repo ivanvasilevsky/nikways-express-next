@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
 import $host from "../http/http"
 import config from "../../config"
-import ProductModal from "../../components/product/ProductModal"
+import ProductModal from "../../components/portfolio/PortfolioModal"
 import { createPortal } from "react-dom"
 
-export default function Products() {
+export default function Portfolio() {
 
   const [modal, setModal] = useState(false)
   const [modalTitle, setModalTitle] = useState('Создать')
