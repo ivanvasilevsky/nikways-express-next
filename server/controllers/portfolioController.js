@@ -170,28 +170,35 @@ class portfolioController {
 
       const portCheck = await models.Portfolio.findOne({ where: { id } })
 
-      if (req.files.preview) {
-        const { preview } = req.files
-        fileService.deleteFile('portfolio', id, portCheck.preview)
-        const previewImage = fileService.saveFile('portfolio', id, preview)
 
-        await models.Portfolio.update({ preview: previewImage }, { where: { id } })
+      if (req.files != null) {
+        if (req.files.preview != null) {
+          const { preview } = req.files
+          fileService.deleteFile('portfolio', id, portCheck.preview)
+          const previewImage = fileService.saveFile('portfolio', id, preview)
+
+          await models.Portfolio.update({ preview: previewImage }, { where: { id } })
+        }
       }
 
-      if (req.files.idea_photo) {
-        const { idea_photo } = req.files
-        fileService.deleteFile('portfolio', id, portCheck.idea_photo)
-        const ideaPhotoImage = fileService.saveFile('portfolio', id, idea_photo)
+      if (req.files != null) {
+        if (req.files.idea_photo != null) {
+          const { idea_photo } = req.files
+          fileService.deleteFile('portfolio', id, portCheck.idea_photo)
+          const ideaPhotoImage = fileService.saveFile('portfolio', id, idea_photo)
 
-        await models.Portfolio.update({ idea_photo: ideaPhotoImage }, { where: { id } })
+          await models.Portfolio.update({ idea_photo: ideaPhotoImage }, { where: { id } })
+        }
       }
 
-      if (req.files.bg) {
-        const { bg } = req.files
-        fileService.deleteFile('portfolio', id, portCheck.bg)
-        const bgImage = fileService.saveFile('portfolio', id, bg)
+      if (req.files != null) {
+        if (req.files.bg != null) {
+          const { bg } = req.files
+          fileService.deleteFile('portfolio', id, portCheck.bg)
+          const bgImage = fileService.saveFile('portfolio', id, bg)
 
-        await models.Portfolio.update({ bg: bgImage }, { where: { id } })
+          await models.Portfolio.update({ bg: bgImage }, { where: { id } })
+        }
       }
 
 

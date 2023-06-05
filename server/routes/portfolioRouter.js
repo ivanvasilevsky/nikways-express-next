@@ -1,14 +1,15 @@
 import { Router } from "express"
 import portfolioController from "../controllers/portfolioController.js"
+import authMiddleware from "../middleware/authMiddleware.js"
 
 const router = Router()
 
-router.post('/project', portfolioController.create)
-router.post('/portfolio_gallery', portfolioController.createGallery)
+router.post('/project', authMiddleware, portfolioController.create)
+router.post('/portfolio_gallery', authMiddleware, portfolioController.createGallery)
 router.get('/project', portfolioController.getAll)
 router.get('/project/:slug', portfolioController.getOne)
-router.put('/project', portfolioController.update)
-router.delete('/project/:id', portfolioController.delete)
-router.delete('/portfolio_gallery/:id', portfolioController.deleteGallery)
+router.put('/project', authMiddleware, portfolioController.update)
+router.delete('/project/:id', authMiddleware, portfolioController.delete)
+router.delete('/portfolio_gallery/:id', authMiddleware, portfolioController.deleteGallery)
 
 export default router
