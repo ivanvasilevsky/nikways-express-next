@@ -151,17 +151,28 @@
 .gallery__item
   grid-column: span 4
 
+  @media(max-width: 520px)
+    grid-column: span 6
+
 .gallery__modal__head
   display: flex
   align-items: center
   justify-content: space-between
   margin-bottom: 14px
 
+  @media(max-width: 640px)
+    flex-direction: column
+
 .gallery__modal__title
   font-size: 20px
   text-align: left
   margin-right: 16px
   font-weight: 500
+
+  @media(max-width: 640px)
+    margin-bottom: 10px
+    margin-right: 0
+    text-align: center
 
 .gallery__modal__block
   margin-bottom: 20px
@@ -214,6 +225,9 @@
   align-items: center
   gap: 10px
 
+  @media(max-width: 410px)
+    flex-direction: column
+
   & .main__input
     height: 38px
     padding: 10px
@@ -233,6 +247,9 @@
   background: #f3f3f31c
   border: 1px solid #f3f3f31c
   transition: .2s
+
+  @media(max-width: 520px)
+    font-size: 14px
 
   &:hover
     background: #f3f3f328
