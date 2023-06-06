@@ -3,10 +3,12 @@ import { createPortal } from "react-dom"
 import $host from "../http/http"
 import config from "../../config"
 import PortfolioModal from "../../components/portfolio/PortfolioModal"
+import GalleryModal from "../../components/portfolio/GalleryModal"
 
 export default function Portfolio() {
 
   const [modal, setModal] = useState(false)
+  const [modalGallery, setModalGallery] = useState(false)
   const [modalSlug, setModalSlug] = useState()
   const [modalTitle, setModalTitle] = useState('Создать')
 
@@ -38,11 +40,24 @@ export default function Portfolio() {
     setModalSlug()
   }
 
+  const galleryModalOn = (slug) => {
+    setModalSlug(slug)
+    setModalGallery(true)
+  }
+
+  const galleryModalOff = () => {
+    setModalSlug()
+    setModalGallery(false)
+  }
+
 
   return (
     <>
     {modal &&
       createPortal(<PortfolioModal title={modalTitle}  modalOff={modalOff} slug={modalSlug}/>, document.querySelector('#modal'))
+    }
+    {modalGallery &&
+      createPortal(<GalleryModal title={'Галерея'}  modalOff={galleryModalOff} slug={modalSlug}/>, document.querySelector('#modal'))
     }
 
     <div className='category'>

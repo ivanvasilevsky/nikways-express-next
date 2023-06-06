@@ -122,3 +122,114 @@
   width: 100%
   height: 100%
   border: 0
+
+.gallery__item__video
+  border-radius: 8px
+  background: $black
+  overflow: hidden
+  position: relative
+  width: 100%
+  padding-bottom: 56.25%
+
+.gallery__item__video iframe
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  border: 0
+
+.gallery__modal__inner
+  max-width: 700px
+  overflow-y: scroll
+
+.gallery__modal__block
+  display: grid
+  grid-template-columns: repeat(12, 1fr)
+  gap: 14px
+
+.gallery__item
+  grid-column: span 4
+
+.gallery__modal__head
+  display: flex
+  align-items: center
+  justify-content: space-between
+  margin-bottom: 14px
+
+.gallery__modal__title
+  font-size: 20px
+  text-align: left
+  margin-right: 16px
+  font-weight: 500
+
+.gallery__modal__block
+  margin-bottom: 20px
+
+.gallery__item__image
+  position: relative
+  transition: .2s
+
+  & .gallery__photo
+    border-radius: 8px
+    transition: .2s
+
+  &:hover
+    cursor: pointer
+
+    & .gallery__photo
+      opacity: 0.7
+
+    & .gallery__delete__image__btn
+      opacity: 1
+
+.gallery__delete__image__btn
+  transition: .2s
+  position: absolute
+  top: 50%
+  left: 50%
+  translate: -50% -50%
+  opacity: 0
+
+  & img
+    width: 40px
+
+  &:hover
+    scale: 1.2
+    transition: .3s
+
+  &:active
+    scale: .9
+
+.gallery__delete__btn
+  margin: 10px auto 0
+  padding: 5px 8px
+  font-size: 16px
+
+.gallery__item__create
+  display: flex
+  align-items: center
+  gap: 10px
+
+  & .main__input
+    height: 38px
+    padding: 10px
+    width: 100%
+    max-width: 200px
+
+.gallery__create__btn
+  white-space: nowrap
+  height: 50%
+  width: 100%
+  max-width: 220px
+  color: $white
+  font-size: 16px
+  height: 38px
+  padding: 5px 15px
+  border-radius: 4px
+  background: #f3f3f31c
+  border: 1px solid #f3f3f31c
+  transition: .2s
+
+  &:hover
+    background: #f3f3f328
