@@ -41,6 +41,25 @@ class partnerController {
     }
   }
 
+  async getAllAdmin(req, res) {
+    try {
+      const partners = await models.Partners.findAll()
+      res.json(partners)
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+  async getOne(req, res) {
+    try {
+      const { id } = req.params
+      const partner = await models.Partners.findOne({ where: { id } })
+      res.json(partner)
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
   async update(req, res) {
     try {
       const { id, name, full_name, desc, youtube_link } = req.body

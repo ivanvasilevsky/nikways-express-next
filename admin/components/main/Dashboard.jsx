@@ -24,6 +24,10 @@ export default function Dashboard({ titleOn, checkLogin }) {
       seo: '/admin/services'
     },
     {
+      name: 'Партнеры',
+      seo: '/admin/partners'
+    },
+    {
       name: 'Информация',
       seo: '/admin/info'
     },

@@ -5,6 +5,8 @@ import Portfolio from "../../src/pages/Portfolio"
 import Category from "../../src/pages/Category"
 import Info from "../../src/pages/Info"
 import ServiceGroup from "../../src/pages/ServiceGroup"
+import Services from "../../src/pages/Services"
+import Partners from "../../src/pages/Partners"
 
 export default function Page({ checkLogin }) {
 
@@ -22,6 +24,8 @@ export default function Page({ checkLogin }) {
             <Route path="/admin/" element={<Portfolio />} />
             <Route path="/admin/category" element={<Category />} />
             <Route path="/admin/service_group" element={<ServiceGroup />} />
+            <Route path="/admin/services" element={<Services />} />
+            <Route path="/admin/partners" element={<Partners />} />
             <Route path="/admin/info" element={<Info />} />
           </Routes>
 

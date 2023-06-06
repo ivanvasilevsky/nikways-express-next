@@ -16,7 +16,7 @@ export default function ServiceGroupItem({ item, modalOn, updateOn }) {
   }
 
   return (
-    <div className="category__item" key={item.id}>
+    <div className="category__item">
       <div className="category__item__head">
         <p className="portfolio__name">{item.title}</p>
 

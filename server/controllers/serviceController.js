@@ -7,13 +7,13 @@ class serviceController {
     try {
       const { name, desc, type } = req.body
 
-      const serviceVerify = await models.Services.findOne({ where: { name }})
+      const serviceVerify = await models.Services.findOne({ where: { name } })
       if (serviceVerify) {
         return res.json(messageService.send(0, 'Услуга с таким названием уже есть!'))
       }
 
       const images = req.files.image
-      const image = fileService.saveFile('services', null , images)
+      const image = fileService.saveFile('services', null, images)
 
       const services = await models.Services.create({ name, desc, image, type })
       res.json(services)
@@ -32,7 +32,7 @@ class serviceController {
       if (type) {
         const idsType = type.split('-')
 
-        services = await models.Services.findAll({ where: { type: idsType }})
+        services = await models.Services.findAll({ where: { type: idsType } })
       } else {
         services = await models.Services.findAll()
       }
@@ -47,6 +47,18 @@ class serviceController {
     }
   }
 
+  async getOne(req, res) {
+    try {
+      const { id } = req.params
+
+      const service = await models.Services.findOne({ where: { id } })
+
+      res.json(service)
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
   async update(req, res) {
     try {
       const { id, name, desc, type } = req.body
@@ -56,7 +68,7 @@ class serviceController {
         return res.json(messageService.send(0, 'Услуга с таким названием уже есть!'))
       }
 
-      const serviceCheck = await models.Services.findOne({ where: { id }})
+      const serviceCheck = await models.Services.findOne({ where: { id } })
 
       if (req.files != null) {
         fileService.deleteFile('services', null, serviceCheck.image)

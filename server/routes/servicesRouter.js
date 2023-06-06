@@ -6,6 +6,7 @@ const router = Router()
 
 router.post('/services', authMiddleware, serviceController.create)
 router.get('/services', serviceController.getAll)
+router.get('/services/:id', serviceController.getOne)
 router.put('/services', authMiddleware, serviceController.update)
 router.delete('/services/:id', authMiddleware, serviceController.delete)
 

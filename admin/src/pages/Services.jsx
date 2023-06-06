@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
 import { createPortal } from "react-dom"
 import $host from "../http/http"
-import ServiceGroupItem from "../../components/serviceGroup/ServiceGroupItem"
-import ServiceGroupModal from "../../components/serviceGroup/ServiceGroupModal"
+import ServiceModal from "../../components/service/ServiceModal"
+import ServiceItem from "../../components/service/ServiceItem"
 
-export default function ServiceGroup() {
+export default function Services() {
 
   const [modal, setModal] = useState(false)
   const [modalSlug, setModalSlug] = useState()
@@ -14,7 +14,7 @@ export default function ServiceGroup() {
   const [services, setServices] = useState([])
 
   const getInfo = async () => {
-    const response = await $host.get('/services_groupe')
+    const response = await $host.get('/services')
     setServices(response.data.reverse())
   }
 
@@ -44,7 +44,7 @@ export default function ServiceGroup() {
   return (
     <>
     {modal &&
-      createPortal(<ServiceGroupModal title={modalTitle}  modalOff={modalOff} slug={modalSlug} image={modalPreview}/>, document.querySelector('#modal'))
+      createPortal(<ServiceModal title={modalTitle}  modalOff={modalOff} slug={modalSlug} image={modalPreview}/>, document.querySelector('#modal'))
     }
 
     <div className='category'>
@@ -54,7 +54,7 @@ export default function ServiceGroup() {
       <div className="category__inner portfolio__inner">
         <div className="category__grid portfolio__grid">
           {services.map(item => (
-            <ServiceGroupItem key={item.id} item={item} modalOn={modalOn} updateOn={getInfo}/>
+            <ServiceItem key={item.id} item={item} modalOn={modalOn} updateOn={getInfo}/>
           ))}
         </div>
       </div>
