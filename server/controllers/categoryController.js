@@ -131,7 +131,8 @@ class categoryController {
       const { id } = req.params
 
       const portfolioCheck = await models.Portfolio.findAll({ where: { categoryId: id } })
-      if (portfolioCheck) {
+
+      if (portfolioCheck.length > 0) {
         return res.json(messageService.send(0, 'У этой категории есть проекты!'))
       }
 

@@ -36,6 +36,16 @@ class serviceGroupeController {
     }
   }
 
+  async getOne(req, res) {
+    try {
+      const { id } = req.params
+      const services = await models.Services_groupe.findOne({ where: { id } })
+      res.json(services)
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
   async update(req, res) {
     try {
       const { id, title, subtitle } = req.body
@@ -52,9 +62,9 @@ class serviceGroupeController {
         const photo = req.files.image
         const image = fileService.saveFile('services', null, photo)
 
-        await models.Services_groupe.update({ title, subtitle, image }, { where: { id }})
+        await models.Services_groupe.update({ title, subtitle, image }, { where: { id } })
       } else {
-        await models.Services_groupe.update({ title, subtitle }, { where: { id }})
+        await models.Services_groupe.update({ title, subtitle }, { where: { id } })
       }
 
 
@@ -68,10 +78,10 @@ class serviceGroupeController {
     try {
       const { id } = req.params
 
-      const serviceCheck = await models.Services_groupe.findOne({ where: { id }})
+      const serviceCheck = await models.Services_groupe.findOne({ where: { id } })
       fileService.deleteFile('services', null, serviceCheck.image)
 
-      await models.Services_groupe.destroy({ where: { id }})
+      await models.Services_groupe.destroy({ where: { id } })
 
       res.json(messageService.send(1, 'Группа удалена!'))
 
@@ -84,7 +94,7 @@ class serviceGroupeController {
     try {
       const { name, text, servicesGroupId } = req.body
 
-      const itemVerify = await models.Services_groupe_item.findOne({ where: { name }})
+      const itemVerify = await models.Services_groupe_item.findOne({ where: { name } })
       if (itemVerify) {
         return res.json(messageService.send(0, 'Услуга с таким названием уже есть!'))
       }

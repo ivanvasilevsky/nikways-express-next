@@ -11,7 +11,22 @@ export default function Dashboard({ titleOn, checkLogin }) {
       name: 'Портфолио',
       seo: '/admin/'
     },
-
+    {
+      name: 'Категории',
+      seo: '/admin/category'
+    },
+    {
+      name: 'Группа услуг',
+      seo: '/admin/service_group'
+    },
+    {
+      name: 'Услуги',
+      seo: '/admin/services'
+    },
+    {
+      name: 'Информация',
+      seo: '/admin/info'
+    },
   ]
 
   const location = useLocation()

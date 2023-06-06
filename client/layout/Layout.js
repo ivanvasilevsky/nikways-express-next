@@ -5,22 +5,35 @@ import Menu from "@/component/main/menu/Menu"
 import WaveTransSvg from "@/component/ui/WaveTransSvg"
 import { AnimatePresence, motion } from "framer-motion"
 import { Router, useRouter } from "next/router"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export default function Layout({ children }) {
+  const router = useRouter()
+  const pageKey = router.asPath.split('/')[1]
 
   const [transitionActive, setTransitionActive] = useState(false)
 
-  Router.events.on('routeChangeStart', () => {
-    setTransitionActive(true)
-  })
 
-  Router.events.on('routeChangeComplete', () => {
-    setTransitionActive(false)
-  })
+  const handleStart = (url) => {
+    const mainPath = url.split('/')[1]
 
-  const router = useRouter()
-  const pageKey = router.asPath.split('/').reverse()[0].split('?')[0]
+    if (mainPath != pageKey) {
+      setTransitionActive(true)
+    }
+  }
+
+  const handleComplete = () => setTransitionActive(false)
+
+  useEffect(() => {
+    router.events.on('routeChangeStart', handleStart);
+    router.events.on('routeChangeComplete', handleComplete);
+
+    return () => {
+      router.events.off('routeChangeStart', handleStart);
+      router.events.off('routeChangeComplete', handleComplete);
+    }
+  }, [router])
+
 
   return (
     <>

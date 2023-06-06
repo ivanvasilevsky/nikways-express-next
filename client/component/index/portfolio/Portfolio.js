@@ -49,7 +49,7 @@ export default function Portfolio({ portfolios }) {
           ref={firstRow}
         >
           {portfolios.slice(0, 3).map(item => (
-            <PortfolioItem key={item.id} info={item}/>
+            <PortfolioItem key={item.id} info={item} />
           ))}
         </div>
         <div
@@ -68,14 +68,14 @@ export default function Portfolio({ portfolios }) {
           style={{ top: `-${scrollLastRow}px` }}
         >
           {portfolios.slice(7, 13).map(item => (
-            <PortfolioItem key={item.id} info={item}/>
+            <PortfolioItem key={item.id} info={item} />
           ))}
         </div>
       </div>
 
-      <Link className="btn__more" href="/portfolio">
+      <Link className="btn__more" href="/portfolio/all">
         <span>Смотреть все</span>
-        <Image src="/icons/arrow_more_r.svg" width={6} height={12} alt="arrow"/>
+        <Image src="/icons/arrow_more_r.svg" width={6} height={12} alt="arrow" />
       </Link>
     </Container>
   )
