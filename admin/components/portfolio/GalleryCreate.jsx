@@ -32,7 +32,6 @@ export default function GalleryCreate({id, block, updateOn}) {
   }
 
 
-
   return (
     <div className="gallery__item gallery__item__create">
 
