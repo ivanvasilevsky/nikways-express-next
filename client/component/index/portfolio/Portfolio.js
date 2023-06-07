@@ -4,6 +4,7 @@ import PortfolioItem from "./PortfolioItem"
 import Image from "next/image"
 import Link from "next/link"
 
+
 export default function Portfolio({ portfolios }) {
 
   const [scrollSecondRow, setScrollSecondRow] = useState(0)
@@ -13,6 +14,8 @@ export default function Portfolio({ portfolios }) {
   const firstRow = useRef()
   const secondRow = useRef()
   const lastRow = useRef()
+
+
 
   const handleScroll = () => {
     const winHeight = window.innerHeight
@@ -24,9 +27,21 @@ export default function Portfolio({ portfolios }) {
 
     let startScroll = window.scrollY - scrollBlock.current.offsetTop
 
+
     if (startScroll > 0 && startScroll + winHeight < blockHeight) {
       setScrollSecondRow((startScroll * secondSize - startScroll))
       setScrollLastRow((startScroll * lastSize - startScroll))
+    }
+
+
+    if (startScroll < 0) {
+      setScrollSecondRow(0)
+      setScrollLastRow(0)
+    }
+
+    if (startScroll + winHeight > blockHeight) {
+      setScrollSecondRow(firstHeight * (secondRow.current.offsetHeight / firstHeight) - firstHeight)
+      setScrollLastRow(firstHeight * (lastRow.current.offsetHeight / firstHeight) - firstHeight)
     }
   }
 

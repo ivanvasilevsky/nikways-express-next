@@ -35,6 +35,7 @@ export default function Layout({ children }) {
   }, [router])
 
 
+
   return (
     <>
       <HeadBlock title={children.props.title} />
