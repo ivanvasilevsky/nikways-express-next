@@ -6,7 +6,7 @@ import ServiceQuestion from "@/component/service/ServiceQuestion"
 import { $host } from "@/http/http"
 import Image from "next/image"
 import Slider from "react-slick"
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { createPortal } from "react-dom"
 import ModalForm from "@/component/modals/ModalForm"
 
@@ -55,19 +55,37 @@ export default function services({ serviceGroupe, services }) {
     setModalInfo()
   }
 
+
+  const [scroll, setScroll] = useState(0)
+
+  const scrollHandle = () => {
+    setScroll(window.scrollY)
+  }
+
+
+  const mainBlock = useRef()
+
+  useEffect(() => {
+    window.addEventListener('scroll', scrollHandle)
+
+    return () => {
+      window.removeEventListener('scroll', scrollHandle)
+    }
+  }, [])
+
   return (
     <>
       {modalActive && createPortal(<ModalForm info={modalInfo} modalOff={modalOff} />, document.querySelector('#modal'))}
 
-      <Intro/>
+      <Intro />
 
-      <section className="service__stage">
+      <section ref={mainBlock} className="service__stage">
         <div className="container">
           {serviceGroupe.map((item, i) => (
-            <ServiceGroup key={item.id} modalOn={modalOn} info={item} number={i}/>
+            <ServiceGroup key={item.id} modalOn={modalOn} info={item} number={i} scroll={scroll} mainBlock={mainBlock} />
           ))}
         </div>
-        <Image className="service__wave" src="/ui/service_wave.svg" width={1920} height={200} alt="wave"/>
+        <Image className="service__wave" src="/ui/service_wave.svg" width={1920} height={200} alt="wave" />
       </section>
 
       <section className="service__slider">
@@ -75,7 +93,7 @@ export default function services({ serviceGroupe, services }) {
 
         <Slider className="service__slide" {...settings}>
           {services.filter(item => item.type == 2).map(item => (
-            <ServiceSlide key={item.id} modalOn={modalOn} info={item}/>
+            <ServiceSlide key={item.id} modalOn={modalOn} info={item} />
           ))}
         </Slider>
       </section>
@@ -84,7 +102,7 @@ export default function services({ serviceGroupe, services }) {
         <h4 className="project__main__title">Собери свою услугу</h4>
         <div className="service__question__block">
           {services.filter(item => item.type == 3).map(item => (
-            <ServiceQuestion key={item.id} modalOn={modalOn} info={item}/>
+            <ServiceQuestion key={item.id} modalOn={modalOn} info={item} />
           ))}
         </div>
       </Container>
