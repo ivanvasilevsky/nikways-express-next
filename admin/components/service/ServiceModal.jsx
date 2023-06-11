@@ -7,6 +7,7 @@ export default function ServiceModal({title, modalOff, slug, image}) {
 
   const [name, setName] = useState('')
   const [text, setText] = useState('')
+  const [kpLink, setKpLink] = useState('')
   const [file, setFile] = useState()
   const [selectType, setSelectType] = useState()
 
@@ -20,6 +21,7 @@ export default function ServiceModal({title, modalOff, slug, image}) {
 
       setName(info.name)
       setText(info.desc)
+      setKpLink(info.kp_link)
       setSelectType(info.type)
     }
   }
@@ -34,6 +36,7 @@ export default function ServiceModal({title, modalOff, slug, image}) {
 
     formData.append('name', name)
     formData.append('desc', text)
+    formData.append('kp_link', kpLink)
     formData.append('type', selectType)
 
 
@@ -105,6 +108,12 @@ export default function ServiceModal({title, modalOff, slug, image}) {
             <img className="service__modal__preview" src={config.IMAGE_URL + '/services/'+ image} alt="preview"/>
           }
         </div>
+
+        <div className="portfolio__modal__item">
+          <p className="main__input__label">Ссылка на КП</p>
+          <input onChange={e=>setKpLink(e.target.value)} value={kpLink} type="text" className="main__input" placeholder="Ссылка"/>
+        </div>
+
         <button onClick={eventChange} className="btn btn-def portfolio__modal__btn">{title}</button>
       </div>
     </Modal>

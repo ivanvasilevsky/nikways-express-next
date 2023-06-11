@@ -8,7 +8,7 @@ export default function Header() {
       <Link className="header__logo" href="/">
         <Image src="/icons/logo.png" width={96} height={74} alt="logo" priority />
       </Link>
-      <div className="header__block">
+      {/* <div className="header__block">
         <div className="header__item">
           <p className="header__subtitle">Крутые как яйца</p>
           <Link href="/form" className="header__link">
@@ -23,7 +23,7 @@ export default function Header() {
             <span>Личный кабинет</span>
           </Link>
         </div>
-      </div>
+      </div> */}
     </Container>
   )
 }

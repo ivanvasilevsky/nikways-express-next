@@ -18,7 +18,7 @@ export default function Home({ categories, portfolios, partners, services }) {
       <FormIndex />
       <Neuro />
       <Partner partners={partners} />
-      <Game />
+      {/* <Game /> */}
     </>
   )
 }

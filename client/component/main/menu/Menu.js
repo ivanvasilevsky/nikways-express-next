@@ -49,19 +49,20 @@ export default function Menu() {
           <div className="menu__mini__inner">
             <div className={`menu__mini__block ${router.asPath != '/' ? 'active' : ''}`}>
               {!router.asPath.includes('project') ?
-              <>
-                <Link className="menu__mini__link" href="/">На главную</Link>
-                {!router.asPath.includes('portfolio') &&
-                  <Link className="menu__mini__link" href="/portfolio/all">Портфолио</Link>
-                }
-                {!router.asPath.includes('services') &&
-                  <Link className="menu__mini__link" href="/services">Услуги</Link>
-                }
-                <Link className="menu__mini__link" href="/form">Заявка</Link>
-                <Link className="menu__mini__link" href="/about">О нас</Link>
-              </>
-              :
-              <button onClick={router.back} className="btn menu__mini__link" href="/portfolio/all">Назад</button>
+                <>
+                  <Link className="menu__mini__link" href="/">На главную</Link>
+                  {!router.asPath.includes('portfolio') &&
+                    <Link className="menu__mini__link" href="/portfolio/all">Портфолио</Link>
+                  }
+                  {!router.asPath.includes('services') &&
+                    <Link className="menu__mini__link" href="/services">Услуги</Link>
+                  }
+
+                  {/* <Link className="menu__mini__link" href="/form">Заявка</Link> */}
+                  {/* <Link className="menu__mini__link" href="/about">О нас</Link> */}
+                </>
+                :
+                <button onClick={router.back} className="btn menu__mini__link" href="/portfolio/all">Назад</button>
               }
             </div>
           </div>
@@ -70,28 +71,28 @@ export default function Menu() {
 
       <div className="menu__main">
         {menuActive &&
-          <WaveSvg/>
+          <WaveSvg />
         }
         {!menuActive &&
           <WaveSvg />
         }
 
         <div className="menu__main__inner">
-          <LinkMenu title="Портфолио" link="/portfolio/all"/>
+          <LinkMenu title="Портфолио" link="/portfolio/all" />
           <LinkMenu title="Услуга" link="/services" />
-          <LinkMenu title="О нас" link="/about" />
-          <LinkMenu title="Нейромаркетинг" link="/" />
-          <LinkMenu title="Игра о нас" link="/" />
-          <LinkMenu title="Личный кабинет" link="/" />
-          <LinkMenu title="Оставить заявку" link="/form" />
+          {/* <LinkMenu title="О нас" link="/about" /> */}
+          {/* <LinkMenu title="Нейромаркетинг" link="/" /> */}
+          {/* <LinkMenu title="Игра о нас" link="/" /> */}
+          {/* <LinkMenu title="Личный кабинет" link="/" /> */}
+          {/* <LinkMenu title="Оставить заявку" link="/form" /> */}
         </div>
       </div>
 
       <div className="menu__trigger">
         <div className="menu__trigger__inner">
-          <TriggerMenuBg/>
+          <TriggerMenuBg />
           <div onClick={() => setMenuActive(true)} className="menu__trigger__btn">
-            <BurgerSvg/>
+            <BurgerSvg />
           </div>
         </div>
         <div onClick={() => setMenuActive(false)} className="menu__trigger__cross">

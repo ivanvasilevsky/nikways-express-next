@@ -1,7 +1,7 @@
 import config from "@/config"
 import Image from "next/image"
 
-export default function ServiceSlide({ info, modalOn}) {
+export default function ServiceSlide({ info, modalOn }) {
   return (
     <div className="service__slide__outer">
       <div className="service__slide__inner">
@@ -15,10 +15,12 @@ export default function ServiceSlide({ info, modalOn}) {
               <Image src="/icons/arrow_more_r.svg" width={6} height={12} alt="arrow" />
             </button>
 
-            <a target='_blank' className="btn__more service__slide__btn" href="/">
-              <span>Посмотреть КП</span>
-              <Image src="/icons/arrow_more_r.svg" width={6} height={12} alt="arrow" />
-            </a>
+            {info.kp_link &&
+              <a target='_blank' className="btn__more service__slide__btn" href={info.kp_link}>
+                <span>Посмотреть КП</span>
+                <Image src="/icons/arrow_more_r.svg" width={6} height={12} alt="arrow" />
+              </a>
+            }
           </div>
         </div>
 

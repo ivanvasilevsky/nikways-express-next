@@ -2,7 +2,7 @@ import sequelize from "../db.js"
 import { DataTypes } from "sequelize"
 
 const Users = sequelize.define('users', {
-  login: { type: DataTypes.STRING, unique: true},
+  login: { type: DataTypes.STRING, unique: true },
   password: { type: DataTypes.STRING },
   fio: { type: DataTypes.STRING },
   active: { type: DataTypes.INTEGER, defaultValue: 1 },
@@ -91,13 +91,14 @@ const Services = sequelize.define('services', {
   name: { type: DataTypes.STRING, unique: true },
   desc: { type: DataTypes.TEXT },
   image: { type: DataTypes.STRING, allowNull: true },
-  type: { type: DataTypes.INTEGER } // 1 - на главной, 2 - в слайдер, 3 - в табы
+  type: { type: DataTypes.INTEGER }, // 1 - на главной, 2 - в слайдер, 3 - в табы
+  kp_link: { type: DataTypes.TEXT }
 })
 
 const Services_groupe = sequelize.define('services_groups', {
   title: { type: DataTypes.STRING, unique: true },
   subtitle: { type: DataTypes.STRING },
-  image: { type: DataTypes.STRING}
+  image: { type: DataTypes.STRING }
 })
 
 const Services_groupe_item = sequelize.define('services_group_items', {

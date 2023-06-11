@@ -5,7 +5,7 @@ import messageService from "../services/messageService.js"
 class serviceController {
   async create(req, res) {
     try {
-      const { name, desc, type } = req.body
+      const { name, desc, type, kp_link } = req.body
 
       const serviceVerify = await models.Services.findOne({ where: { name } })
       if (serviceVerify) {
@@ -15,7 +15,7 @@ class serviceController {
       const images = req.files.image
       const image = fileService.saveFile('services', null, images)
 
-      const services = await models.Services.create({ name, desc, image, type })
+      const services = await models.Services.create({ name, desc, image, type, kp_link })
       res.json(services)
 
     } catch (e) {
@@ -61,7 +61,7 @@ class serviceController {
 
   async update(req, res) {
     try {
-      const { id, name, desc, type } = req.body
+      const { id, name, desc, type, kp_link } = req.body
 
       const serviceVerify = await models.Services.findOne({ where: { name } })
       if (serviceVerify && serviceVerify.id != id) {
@@ -75,9 +75,9 @@ class serviceController {
 
         const images = req.files.image
         const image = fileService.saveFile('services', null, images)
-        await models.Services.update({ name, desc, image, type }, { where: { id } })
+        await models.Services.update({ name, desc, image, type, kp_link }, { where: { id } })
       } else {
-        await models.Services.update({ name, desc, type }, { where: { id } })
+        await models.Services.update({ name, desc, type, kp_link }, { where: { id } })
       }
 
       res.json(messageService.send(1, 'Услуга обновлена!'))
