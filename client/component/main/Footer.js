@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
 
-export default function Footer({info}) {
+export default function Footer({ info }) {
 
   const [infoMass, setInfoMass] = useState({
     email_one: '',
@@ -26,15 +26,15 @@ export default function Footer({info}) {
   return (
     <div className="footer">
       <div className="footer__outer">
-        <Image className="footer__top__svg" src="/ui/footer_top.svg" width={1440} height={40} alt="wave"/>
+        <Image className="footer__top__svg" src="/ui/footer_top.svg" width={1440} height={40} alt="wave" />
         <div className="container">
           <div className="footer__inner">
 
-            <Image className="footer__biba" src="/icons/footer_biba.jpg" width={400} height={380} alt="biba"/>
+            <Image className="footer__biba" src="/icons/footer_biba.jpg" width={400} height={380} alt="biba" />
 
             <div className="footer__block">
               <div onClick={scrollTop} className="footer__arrow">
-                <Image src="/icons/arrow_slide_r.svg" width={55} height={55} alt="arrow"/>
+                <Image src="/icons/arrow_slide_r.svg" width={55} height={55} alt="arrow" />
               </div>
 
               <div className="footer__floor">
@@ -59,7 +59,7 @@ export default function Footer({info}) {
                   <p className="footer__title">Наши социальные сети</p>
                   <div className="footer__social">
                     <a href={infoMass.link_insta} className="footer__social__item">
-                      <Image src="/icons/insta.svg" width={38} height={38} alt="insta"/>
+                      <Image src="/icons/insta.svg" width={38} height={38} alt="insta" />
                     </a>
                     <a href={infoMass.link_whatsapp} className="footer__social__item">
                       <Image src="/icons/whatsapp.svg" width={38} height={38} alt="youtube" />
@@ -72,7 +72,7 @@ export default function Footer({info}) {
                     </a>
                   </div>
 
-                  <Link className="footer__btn" href="/form">Оставить заявку</Link>
+                  {/* <Link className="footer__btn" href="/form">Оставить заявку</Link> */}
                 </div>
               </div>
             </div>

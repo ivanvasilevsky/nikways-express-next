@@ -1,3 +1,4 @@
+import Intro from "@/component/index/intro/Intro"
 import { $host } from "@/http/http"
 
 export default function Custom404() {
@@ -5,7 +6,8 @@ export default function Custom404() {
 
   return (
     <>
-      <p>Страница не найдена</p>
+      <Intro />
+      <p className="not__found__text">Страница не найдена</p>
     </>
   )
 }

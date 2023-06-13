@@ -1,3 +1,4 @@
+import Intro from "@/component/index/intro/Intro"
 import { $host } from "@/http/http"
 
 export default function Custom500() {
@@ -5,7 +6,8 @@ export default function Custom500() {
 
   return (
     <>
-      <p>Ошибка сервера</p>
+      <Intro />
+      <p className="not__found__text">Ошибка сервера</p>
     </>
   )
 }

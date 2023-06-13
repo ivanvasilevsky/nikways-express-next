@@ -64,7 +64,7 @@ export default function Neuro() {
               <div className="neuro__block">
                 <p className="neuro__block__title">Узнать подробнее</p>
 
-                <a href="" target="_blank" className="btn btn__neuro">
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" className="btn btn__neuro">
                   <span>О нейромаркетинге</span>
                   <Image src="/icons/arrow_gr.svg" width={6} height={10} alt="arrow" />
                 </a>
