@@ -16,10 +16,10 @@
 
 
 
-# /admin/config.js
+/admin/config.js
 
-# /client/config.js
-# /client/next.config.js
+/client/config.js
+/client/next.config.js
 
-# /server/.env
-# /server/static
+/server/.env
+/server/static
