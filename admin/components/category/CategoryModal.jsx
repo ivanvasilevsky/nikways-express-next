@@ -4,6 +4,7 @@ import $host from "../../src/http/http"
 
 export default function CategoryModal({ title, modalOff, slug }) {
 
+  const [error, setError] = useState('')
 
   const [deleteVerify, setDeleteVerify] = useState(false)
 
@@ -30,6 +31,12 @@ export default function CategoryModal({ title, modalOff, slug }) {
 
 
   const eventProject = async () => {
+
+    if (name.length == 0) {
+      return setError('Заполните название!')
+    } else {
+      setError('')
+    }
 
     const formData = new FormData
 
@@ -82,6 +89,8 @@ export default function CategoryModal({ title, modalOff, slug }) {
             <input onChange={(e)=>setName(e.target.value)} value={name} type="text" className="main__input" placeholder="Название"/>
           </div>
         </div>
+
+        <p className="modal__error__text">{error}</p>
 
         <button onClick={eventProject} className="btn btn-def portfolio__modal__btn">{title}</button>
       </div>

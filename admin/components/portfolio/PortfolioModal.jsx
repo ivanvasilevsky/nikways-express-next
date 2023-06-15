@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react"
 import Modal from "../main/Modal"
 import $host from "../../src/http/http"
-import InputMask from "react-input-mask"
+
 
 export default function PortfolioModal({ title, modalOff, slug }) {
+
+  const [error, setError] = useState('')
 
   const [tabId, setTabId] = useState(0)
 
@@ -16,7 +18,7 @@ export default function PortfolioModal({ title, modalOff, slug }) {
   const [deleteVerify, setDeleteVerify] = useState(false)
 
   const [id, setId] = useState()
-  const [name, setName] = useState()
+  const [name, setName] = useState('')
   const [type, setType] = useState('')
   const [client, setClient] = useState('')
   const [deadline, setDeadline] = useState('')
@@ -33,11 +35,11 @@ export default function PortfolioModal({ title, modalOff, slug }) {
 
   const [preview, setPreview] = useState()
   const [bg, setBg] = useState()
-  const [videoLink, setVideoLink] = useState()
-  const [backStageLink, setBackStageLink] = useState()
-  const [reviewLink, setReviewLink] = useState()
+  const [videoLink, setVideoLink] = useState('')
+  const [backStageLink, setBackStageLink] = useState('')
+  const [reviewLink, setReviewLink] = useState('')
 
-  const [idea, setIdea] = useState()
+  const [idea, setIdea] = useState('')
   const [ideaText, setIdeaText] = useState('')
 
   const getCategories = async () => {
@@ -89,6 +91,26 @@ export default function PortfolioModal({ title, modalOff, slug }) {
 
   const eventProject = async () => {
 
+    if (
+      name.length == 0 ||
+      type.length == 0 ||
+      client.length == 0 ||
+      deadline.length == 0 ||
+      goal.length == 0 ||
+      workTime.length == 0 ||
+      place.length == 0 ||
+      environment.length == 0 ||
+      theme.length == 0 ||
+      price == 'DEFAULT' ||
+      tags.length == 0 ||
+      selectCategory.length == 0 ||
+      categories.length == 0
+    ) {
+      return setError('Заполните поля отмеченные звездочкой *')
+    } else {
+      setError('')
+    }
+
     const formData = new FormData
 
     if (id) {
@@ -131,6 +153,8 @@ export default function PortfolioModal({ title, modalOff, slug }) {
 
     if (response) {
       modalOff()
+    } else {
+      return setError('Ошибка!')
     }
   }
 
@@ -165,44 +189,44 @@ export default function PortfolioModal({ title, modalOff, slug }) {
           {tabId == 0 &&
           <>
             <div className="portfolio__modal__item">
-              <p className="main__input__label">Название</p>
+              <p className="main__input__label">Название *</p>
               <input onChange={(e)=>setName(e.target.value)} value={name} type="text" className="main__input" placeholder="Название"/>
             </div>
             <div className="portfolio__modal__item double">
-              <p className="main__input__label">Тип проекта</p>
+              <p className="main__input__label">Тип проекта *</p>
               <input onChange={(e)=>setType(e.target.value)} value={type} type="text" className="main__input" placeholder="Тип проекта"/>
             </div>
             <div className="portfolio__modal__item double">
-              <p className="main__input__label">Клиент</p>
+              <p className="main__input__label">Клиент *</p>
               <input onChange={(e)=>setClient(e.target.value)} value={client} type="text" className="main__input" placeholder="Клиент"/>
             </div>
             <div className="portfolio__modal__item double">
-              <p className="main__input__label">Дедлайн</p>
+              <p className="main__input__label">Дедлайн *</p>
               <input onChange={(e)=>setDeadline(e.target.value)} value={deadline} type="text" className="main__input" placeholder="Дедлайн"/>
             </div>
             <div className="portfolio__modal__item double">
-              <p className="main__input__label">Срок выполнения</p>
+              <p className="main__input__label">Срок выполнения *</p>
               <input onChange={(e)=>setWorkTime(e.target.value)} value={workTime} type="text" className="main__input" placeholder="Срок выполнения"/>
             </div>
             <div className="portfolio__modal__item">
-              <p className="main__input__label">Цель</p>
+              <p className="main__input__label">Цель *</p>
               <input onChange={(e)=>setGoal(e.target.value)} value={goal} type="text" className="main__input" placeholder="Цель"/>
             </div>
             <div className="portfolio__modal__item double">
-              <p className="main__input__label">Место съемок</p>
+              <p className="main__input__label">Место съемок *</p>
               <input onChange={(e)=>setPlace(e.target.value)} value={place} type="text" className="main__input" placeholder="Место съемок"/>
             </div>
             <div className="portfolio__modal__item double">
-              <p className="main__input__label">Условия</p>
+              <p className="main__input__label">Условия *</p>
               <input onChange={(e)=>setEnvironment(e.target.value)} value={environment} type="text" className="main__input" placeholder="Условия"/>
             </div>
             <div className="portfolio__modal__item double">
-              <p className="main__input__label">Тема</p>
+              <p className="main__input__label">Тема *</p>
               <input onChange={(e)=>setTheme(e.target.value)} value={theme} type="text" className="main__input" placeholder="Тема"/>
             </div>
 
             <div className="portfolio__modal__item double">
-              <p className="main__input__label">Цена</p>
+              <p className="main__input__label">Цена *</p>
               <select onChange={(e)=>setPrice(e.target.value)} value={price} className="main__input">
                 <option value="DEFAULT" disabled>Цена</option>
                 <option value="1">Низкая</option>
@@ -212,11 +236,11 @@ export default function PortfolioModal({ title, modalOff, slug }) {
             </div>
 
             <div className="portfolio__modal__item double">
-              <p className="main__input__label">Теги</p>
+              <p className="main__input__label">Теги *</p>
               <input onChange={(e)=>setTags(e.target.value)} value={tags} type="text" className="main__input" placeholder="Теги через запятую"/>
             </div>
             <div className="portfolio__modal__item double">
-              <p className="main__input__label">Категория</p>
+              <p className="main__input__label">Категория *</p>
               <select onChange={(e)=>setSelectCategory(e.target.value)} value={selectCategory} className="main__input">
                 <option value="DEFAULT" disabled>Категория</option>
                 {categories.map(item => (
@@ -229,11 +253,11 @@ export default function PortfolioModal({ title, modalOff, slug }) {
           {tabId == 1 &&
           <>
             <div className="portfolio__modal__item double">
-              <p className="main__input__label">Превью</p>
+              <p className="main__input__label">Превью *</p>
               <input onChange={(e)=>setPreview(e.target.files[0])} type="file" className="main__input file"/>
             </div>
             <div className="portfolio__modal__item double">
-              <p className="main__input__label">Фон</p>
+              <p className="main__input__label">Фон *</p>
               <input onChange={(e)=>setBg(e.target.files[0])} type="file" className="main__input file"/>
             </div>
             <div className="portfolio__modal__item double">
@@ -278,7 +302,11 @@ export default function PortfolioModal({ title, modalOff, slug }) {
           </>
           }
         </div>
+
+        <p className="modal__error__text">{error}</p>
+
         <button onClick={eventProject} className="btn btn-def portfolio__modal__btn">{title}</button>
+
       </div>
     </Modal>
   )

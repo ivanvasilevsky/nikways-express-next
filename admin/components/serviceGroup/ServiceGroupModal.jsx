@@ -5,6 +5,8 @@ import config from "../../config";
 
 export default function ServiceGroupModal({title, modalOff, slug, image}) {
 
+  const [error, setError] = useState('')
+
   const [name, setName] = useState('')
   const [text, setText] = useState('')
   const [file, setFile] = useState()
@@ -23,6 +25,12 @@ export default function ServiceGroupModal({title, modalOff, slug, image}) {
   }
 
   const eventChange = async () => {
+
+    if (name.length == 0 || text.length == 0 || (file == null && !slug)) {
+      return setError('Заполните все поля отмеченные звездочкой *')
+    } else {
+      setError('')
+    }
 
     const formData = new FormData
 
@@ -45,8 +53,11 @@ export default function ServiceGroupModal({title, modalOff, slug, image}) {
       response = await $host.put('/services_groupe', formData)
     }
 
+    console.log(response.data);
     if (response) {
       modalOff()
+    } else {
+      return setError(response.data.message)
     }
   }
 
@@ -78,22 +89,25 @@ export default function ServiceGroupModal({title, modalOff, slug, image}) {
         }
 
         <div className="portfolio__modal__item">
-          <p className="main__input__label">Название</p>
+          <p className="main__input__label">Название *</p>
           <input onChange={e=>setName(e.target.value)} value={name} type="text" className="main__input" placeholder="Название"/>
         </div>
         <div className="portfolio__modal__item">
-          <p className="main__input__label">Текст</p>
+          <p className="main__input__label">Текст *</p>
           <textarea onChange={e=>setText(e.target.value)} value={text} type="text" className="main__input" placeholder="Текст"></textarea>
         </div>
 
         <div className="portfolio__modal__item">
-          <p className="main__input__label">Изображение</p>
+          <p className="main__input__label">Изображение *</p>
           <input onChange={e=>setFile(e.target.files[0])} type="file" className="main__input"/>
 
           {slug && !file &&
             <img className="service__modal__preview" src={config.IMAGE_URL + '/services/'+ image} alt="preview"/>
           }
         </div>
+
+        <p className="modal__error__text">{error}</p>
+
         <button onClick={eventChange} className="btn btn-def portfolio__modal__btn">{title}</button>
       </div>
     </Modal>
