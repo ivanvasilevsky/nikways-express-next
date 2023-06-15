@@ -92,6 +92,7 @@ class categoryController {
         }
       }
 
+
       res.json({
         filters,
         info: {
@@ -99,7 +100,7 @@ class categoryController {
           name: category.name,
           slug: category.slug
         },
-        portfolios: filterPortfolio
+        portfolios: filterPortfolio.portfolios.reverse()
       })
     } catch (e) {
       console.log(e)

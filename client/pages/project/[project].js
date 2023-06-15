@@ -13,12 +13,14 @@ export default function Project({ project, categories }) {
   const getPortfolio = async (slug) => {
     const response = await $host.get(`/category/${slug}?limit=6`)
     setCategorySelect(response.data.info)
-    setPortfolio(response.data.portfolios.portfolios)
+    setPortfolio(response.data.portfolios)
   }
 
   useState(() => {
     getPortfolio(categories[0].slug)
   }, [])
+
+  console.log(project.video);
 
   return (
     <>
@@ -36,23 +38,29 @@ export default function Project({ project, categories }) {
               <div className="project__head__item"><span>Срок выполнения:</span> {project.deadline}</div>
             </div>
 
-            <div className="project__video">
-              <iframe width="100%" height="100%" src={`https://www.youtube.com/embed/${project.video}`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
-            </div>
+            {project.video &&
+              <div className="project__video">
+                <iframe width="100%" height="100%" src={`https://www.youtube.com/embed/${project.video}`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+              </div>
+            }
 
             <div className="project__review">
-              <div className="project__review__item">
-                <p className="project__review__title">Как это было</p>
-                <div className="project__review__item__video">
-                  <iframe width="100%" height="100%" src={`https://www.youtube.com/embed/${project.backstage}`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+              {project.backstage &&
+                <div className="project__review__item">
+                  <p className="project__review__title">Как это было</p>
+                  <div className="project__review__item__video">
+                    <iframe width="100%" height="100%" src={`https://www.youtube.com/embed/${project.backstage}`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+                  </div>
                 </div>
-              </div>
-              <div className="project__review__item">
-                <p className="project__review__title">Отзыв</p>
-                <div className="project__review__item__video">
-                  <iframe width="100%" height="100%" src={`https://www.youtube.com/embed/${project.review}`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+              }
+              {project.review &&
+                <div className="project__review__item">
+                  <p className="project__review__title">Отзыв</p>
+                  <div className="project__review__item__video">
+                    <iframe width="100%" height="100%" src={`https://www.youtube.com/embed/${project.review}`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+                  </div>
                 </div>
-              </div>
+              }
             </div>
           </div>
         </section>
@@ -97,17 +105,19 @@ export default function Project({ project, categories }) {
           </div>
         </section>
 
-        <section className="project__idea">
-          <div className="container">
-            <p className="project__main__title">Какая идея?</p>
-            <div className="project__idea__block">
-              <div className="project__idea__photo">
-                <Image src={config.IMAGE_URL + `/portfolio/${project.id}/` + project.idea_photo} width={570} height={320} alt="idea" />
+        {project.idea_text || project.idea_photo &&
+          <section className="project__idea">
+            <div className="container">
+              <p className="project__main__title">Какая идея?</p>
+              <div className="project__idea__block">
+                <div className="project__idea__photo">
+                  <Image src={config.IMAGE_URL + `/portfolio/${project.id}/` + project.idea_photo} width={570} height={320} alt="idea" />
+                </div>
+                <p className="project__idea__text">{project.idea_text}</p>
               </div>
-              <p className="project__idea__text">{project.idea_text}</p>
             </div>
-          </div>
-        </section>
+          </section>
+        }
 
 
         {project.portfolio_galleries.filter(item => item.block == 1).length > 0 &&

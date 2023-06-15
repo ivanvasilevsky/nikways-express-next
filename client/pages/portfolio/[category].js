@@ -4,7 +4,7 @@ import { $host } from "@/http/http"
 export default function Portfolio({ portfolios, categories }) {
 
   return (
-    <PortfolioPage portfolios={portfolios} categories={categories}/>
+    <PortfolioPage portfolios={portfolios} categories={categories} />
   )
 }
 

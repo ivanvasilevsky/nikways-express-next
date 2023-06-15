@@ -3,7 +3,7 @@ import Container from "../main/Container"
 
 export default function PortfolioGrid({ portfolios }) {
 
-  const projects = portfolios.portfolios.portfolios
+  const projects = portfolios.portfolios
 
   return (
     <Container className="portfolio">
