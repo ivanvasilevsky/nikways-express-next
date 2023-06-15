@@ -23,9 +23,17 @@
   flex-direction: column
   gap: 100px
 
-  & .portfolio__card:last-child
+  &:first-child
+    & .portfolio__card__link img
+      @media(max-width: 900px)
+        min-height: 400px
+
       @media(max-width: 620px)
-        display: none
+        min-height: initial
+
+  & .portfolio__card:last-child
+    @media(max-width: 620px)
+      display: none
 
   @media(max-width: 998px)
     gap: 30px
@@ -59,7 +67,6 @@
 
     @media(max-width: 620px)
       translate: initial
-
 
   &:nth-child(3)
     right: 0

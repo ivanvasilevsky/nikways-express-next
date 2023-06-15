@@ -56,7 +56,6 @@
   &:hover
     cursor: pointer
 
-
 .menu__main
   position: fixed
   top: 0
@@ -113,7 +112,7 @@
     font-size: 34px
 
   @media(max-width: 390px)
-    font-size: 7vw
+    font-size: 8vw
 
   & span
     text-stroke: 1px $black
@@ -149,7 +148,7 @@
 
 .menu__mini__inner
   position: relative
-  z-index: 7000
+  z-index: 100
 
 .menu__mini__block
   position: absolute
@@ -170,12 +169,18 @@
 
   &:first-child::after
     position: absolute
-    right: calc( 100% + 30px  )
+    right: calc( 100% + 30px )
     top: 36%
     content: ''
     width: 40px
     height: 8px
     @include bg('/icons/arrow_menu_l.svg')
+
+    @media(max-width: 1100px)
+      right: calc( 100% + 16px )
+
+    @media(max-width: 900px)
+      display: none
 
   &:nth-child(1)
     transition-delay: .04s
@@ -188,7 +193,6 @@
 
   &:nth-child(4)
     transition-delay: .14s
-
 
 .menu__mini__block.active
   pointer-events: all
@@ -213,7 +217,6 @@
     &:hover
       opacity: 0.6
       transition: .2s
-
 
 .menu.dark
   & .menu__trigger__bg
@@ -240,7 +243,6 @@
   & .wave__svg svg
     fill: $black
     transition: .7s cubic-bezier(.29,.22,.47,.98)
-
 
 .menu.active
   & .menu__back

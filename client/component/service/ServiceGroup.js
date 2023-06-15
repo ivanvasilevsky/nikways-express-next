@@ -11,7 +11,7 @@ export default function ServiceGroup({ info, number, modalOn, scroll, mainBlock 
 
   useEffect(() => {
     const blockTop = photo.current.getBoundingClientRect().top
-    const blockHeight = photo.current.getBoundingClientRect().height - 200
+    const blockHeight = photo.current.getBoundingClientRect().height - 150
     const clientHeightCenter = window.innerHeight / 2
 
     const blockPosition = blockTop + blockHeight - clientHeightCenter
