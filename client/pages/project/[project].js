@@ -105,7 +105,7 @@ export default function Project({ project, categories }) {
           </div>
         </section>
 
-        {project.idea_text || project.idea_photo &&
+        {(project.idea_text || project.idea_photo) &&
           <section className="project__idea">
             <div className="container">
               <p className="project__main__title">Какая идея?</p>
