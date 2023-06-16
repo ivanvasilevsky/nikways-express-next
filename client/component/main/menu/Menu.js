@@ -79,7 +79,7 @@ export default function Menu() {
 
         <div className="menu__main__inner">
           <LinkMenu title="Портфолио" link="/portfolio/all" />
-          <LinkMenu title="Услуга" link="/services" />
+          <LinkMenu title="Услуги" link="/services" />
           {/* <LinkMenu title="О нас" link="/about" /> */}
           {/* <LinkMenu title="Нейромаркетинг" link="/" /> */}
           {/* <LinkMenu title="Игра о нас" link="/" /> */}
