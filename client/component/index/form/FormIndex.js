@@ -44,7 +44,7 @@ export default function FormIndex() {
 
   return (
     <Container className="form__index">
-      <h2 className="index__title form__index__title">Более мягкий текст (вместо оставь заявку)</h2>
+      <h2 className="index__title form__index__title">Будем на связи</h2>
       <div className="modal__form form__index__form">
         <input className={`input ${fioError ? 'error' : ''}`} value={fio} onChange={(e) => {
           setFio(e.target.value)

@@ -1,9 +1,15 @@
 import Container from "@/component/main/Container"
 import PartnerItem from "./PartnerItem"
-import {useState } from "react"
+import { useEffect, useState } from "react"
 import PartnerInfo from "./PartnerInfo"
 
-export default function Partner({partners}) {
+export default function Partner({ partners }) {
+
+  const [screenWidth, setScreenWidth] = useState()
+  useEffect(() => {
+    setScreenWidth(window.innerWidth)
+  }, [])
+
 
   const [mouseX, setMouseX] = useState(0)
   const [mouseY, setMouseY] = useState(0)
@@ -15,13 +21,16 @@ export default function Partner({partners}) {
 
   const [blockMove, setBlockMove] = useState(true)
 
-  const [info, setInfo] = useState()
+  const [info, setInfo] = useState(partners.first[0])
 
 
   const mouseEnter = (e) => {
     setMouseMomentX(e.pageX)
     setMouseMomentY(e.pageY)
-    setMoveCheck(1)
+
+    if (screenWidth > 1200) {
+      setMoveCheck(1)
+    }
   }
 
   const partnerMouseMove = (e) => {
@@ -49,6 +58,7 @@ export default function Partner({partners}) {
   return (
     <div className="partner">
       <div className="partner__outer"
+        touc
         onMouseMove={partnerMouseMove}
         onMouseEnter={mouseEnter}
         onMouseLeave={mouseLeave}
@@ -58,7 +68,7 @@ export default function Partner({partners}) {
         <div className={`partner__slide ${blockMove ? 'animate' : ''}`} style={{ translate: `${-mouseX}px ${-mouseY}px` }}>
           <div className="partner__line">
             {partners.first.map((item, i) => (
-              <PartnerItem setInfoOn={setInfoOn} key={i} item={item} selectId={info && info.id}/>
+              <PartnerItem setInfoOn={setInfoOn} key={i} item={item} selectId={info && info.id} />
             ))}
           </div>
           <div className="partner__line">
@@ -70,7 +80,7 @@ export default function Partner({partners}) {
       </div>
 
       {info &&
-        <PartnerInfo info={info}/>
+        <PartnerInfo info={info} />
       }
     </div>
   )

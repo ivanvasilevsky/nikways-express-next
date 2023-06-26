@@ -28,7 +28,7 @@ const Intro = ({ categories, title }) => {
     arrow: true,
     autoplay: true,
     infinite: false,
-    autoplaySpeed: 4000,
+    autoplaySpeed: 3000,
     speed: 800,
     slidesToShow: 1,
     slidesToScroll: 1,

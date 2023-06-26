@@ -78,6 +78,7 @@ export default function Menu() {
         }
 
         <div className="menu__main__inner">
+          <LinkMenu title="Главная" link="/" />
           <LinkMenu title="Портфолио" link="/portfolio/all" />
           <LinkMenu title="Услуги" link="/services" />
           {/* <LinkMenu title="О нас" link="/about" /> */}
@@ -85,6 +86,11 @@ export default function Menu() {
           {/* <LinkMenu title="Игра о нас" link="/" /> */}
           {/* <LinkMenu title="Личный кабинет" link="/" /> */}
           {/* <LinkMenu title="Оставить заявку" link="/form" /> */}
+        </div>
+      </div>
+      <div className="menu__trigger back__shadow">
+        <div className="menu__trigger__inner">
+          <TriggerMenuBg />
         </div>
       </div>
 
@@ -99,6 +105,7 @@ export default function Menu() {
           <CrossMenuSvg />
         </div>
       </div>
+
     </div>
   )
 }
