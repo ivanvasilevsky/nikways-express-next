@@ -237,6 +237,8 @@
     fill: $white
 
   & .menu__main__link
+    color: $black
+    -webkit-text-stroke: 1px $white
     & span
       -webkit-text-stroke: 1px $white
       color: $black
@@ -314,3 +316,21 @@
 .menu.top
   & .menu__trigger
     top: 28%
+
+.menu__modal__btn
+  translate: -50% 0
+  left: 50%
+  position: absolute
+  bottom: 30px
+
+  & .menu__main__link
+    text-transform: !important
+    font-size: 18px
+    transition: .2s
+    white-space: nowrap
+    padding-left: 5px
+
+    &:hover
+      cursor: pointer
+      opacity: 0.5
+      transition: .2s
