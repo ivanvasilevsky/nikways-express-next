@@ -161,7 +161,11 @@ export default function PortfolioModal({ title, modalOff, slug }) {
   const deletePortfolio = async () => {
     const response = await $host.delete(`/project/${id}`)
 
-    if (response) {
+    if (response.data.status == 0) {
+      return setError(response.data.message)
+    }
+
+    if (response.data.status == 1) {
       modalOff()
     }
   }

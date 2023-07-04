@@ -53,18 +53,25 @@ export default function CategoryModal({ title, modalOff, slug }) {
       response = await $host.put('/category', formData)
     }
 
-    if (response) {
+
+
+    if (response.data.status == 0) {
+      return setError(response.data.message)
+    }
+
+    if (response.data.status == 1) {
       modalOff()
     }
   }
 
   const deletePortfolio = async () => {
-    console.log(id);
     const response = await $host.delete(`/category/${id}`)
 
-    console.log(response);
+    if (response.data.status == 0) {
+      return setError(response.data.message)
+    }
 
-    if (response) {
+    if (response.data.status == 1) {
       modalOff()
     }
   }
