@@ -37,7 +37,7 @@ export default function GalleryCreate({id, block, updateOn}) {
 
       {youtubeLink.length > 8 &&
       <button onClick={()=>createItem(2, youtubeLink)} className="btn category__item__edit">
-        <img src="/icons/plus_g.svg" alt="check" />
+        <img src="/admin/icons/plus_g.svg" alt="check" />
       </button>
       }
 
@@ -49,7 +49,7 @@ export default function GalleryCreate({id, block, updateOn}) {
 
       {file &&
       <button onClick={()=>createItem(1, file)} className="btn category__item__edit">
-        <img src="/icons/plus_g.svg" alt="check" />
+        <img src="/admin/icons/plus_g.svg" alt="check" />
       </button>
       }
       <label htmlFor={`galleryPhoto${block}`} className="btn gallery__create__btn">Добавить Изображение</label>

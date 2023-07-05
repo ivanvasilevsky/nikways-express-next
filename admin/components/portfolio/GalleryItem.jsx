@@ -19,7 +19,7 @@ export default function GalleryItem({ info, id, updateOn }) {
       <div className="gallery__item__image">
         <img className="gallery__photo" src={config.IMAGE_URL + `/portfolio/${id}/` + info.source} alt="photo" />
         <button onClick={deleteItem} className="btn gallery__delete__image__btn">
-          <img src="/icons/remove.svg" alt="delete" />
+          <img src="/admin/icons/remove.svg" alt="delete" />
         </button>
       </div>
       :
